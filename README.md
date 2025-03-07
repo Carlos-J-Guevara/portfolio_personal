@@ -1,1 +1,1 @@
-<!-- Portafolio, para demostrar habilidades. -->
+Portafolio personal, para demostrar habilidades.
