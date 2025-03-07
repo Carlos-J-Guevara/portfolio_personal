@@ -1,0 +1,17 @@
+.vscode/
+.htmlhintrc
+.prettierignore
+.prettierrc
+.stylelintignore
+.stylelintrc.json
+.eslint.config.mjs
+normalize.css
+package-lock.json
+README.md
+style-guide.md
+package.json
+tsconfig.json
+settings.json
+node_modules/
+dist/
+build/

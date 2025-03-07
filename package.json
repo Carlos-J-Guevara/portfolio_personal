@@ -1,0 +1,36 @@
+{
+  "name": "portfolio_personal",
+  "version": "1.0.0",
+  "description": "<!-- Portafolio, para demostrar habilidades. -->",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint:css": "stylelint '**/*.{css,scss}'",
+    "lint:html": "htmlhint 'public/**/*.html'",
+    "format": "prettier --write . && npm run lint:js && npm run lint:css && npm run lint:html",
+    "check": "npm run format"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "eslint": "^9.21.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "htmlhint": "^1.1.4",
+    "prettier": "^3.5.3",
+    "stylelint": "^16.15.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^37.0.0"
+  }
+}
