@@ -1,0 +1,108 @@
+name: Portfolio CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy-feature:
+    needs: build
+    if: startsWith(github.ref, 'refs/heads/feature/')
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deployment.outputs.url }}
+    environment:
+      name: github-pages-staging
+      url: ${{ steps.deployment.outputs.url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-feature:
+    needs: deploy-feature
+    if: startsWith(github.ref, 'refs/heads/feature/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for initial deployment
+        run: sleep 180
+      
+      - name: Check staging deployment with retry
+        run: |
+          DEPLOY_URL="${{ needs.deploy-feature.outputs.url }}"
+          for i in {1..6}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $DEPLOY_URL)
+            if [ $HTTP_STATUS -eq 200 ]; then
+              echo "Deployment verified successfully!"
+              exit 0
+            fi
+            echo "Attempt $i: Status $HTTP_STATUS, retrying in 60 seconds..."
+            sleep 60
+          done
+          echo "Deployment verification failed after 6 attempts"
+          exit 1
+
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deployment.outputs.url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-production:
+    needs: deploy-production
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for initial deployment
+        run: sleep 180
+      
+      - name: Check production deployment with retry
+        run: |
+          DEPLOY_URL="${{ needs.deploy-production.outputs.url }}"
+          for i in {1..6}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $DEPLOY_URL)
+            if [ $HTTP_STATUS -eq 200 ]; then
+              echo "Deployment verified successfully!"
+              exit 0
+            fi
+            echo "Attempt $i: Status $HTTP_STATUS, retrying in 60 seconds..."
+            sleep 60
+          done
+          echo "Deployment verification failed after 6 attempts"
+          exit 1
