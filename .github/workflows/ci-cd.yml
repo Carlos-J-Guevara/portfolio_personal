@@ -28,12 +28,6 @@ jobs:
       - name: Build project
         run: npm run build --legacy-peer-deps
 
-      - name: Create version file
-        run: |
-          echo "version: ${{ github.sha }}" > dist/version.json
-          echo "branch: ${{ github.ref }}" >> dist/version.json
-          echo "deployment_time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> dist/version.json
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -43,8 +37,6 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/heads/feature/')
     runs-on: ubuntu-latest
-    outputs:
-      url: ${{ steps.deployment.outputs.url }}
     environment:
       name: github-pages-staging
       url: ${{ steps.deployment.outputs.url }}
@@ -53,61 +45,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-  verify-feature:
-    needs: deploy-feature
-    if: startsWith(github.ref, 'refs/heads/feature/')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait for initial deployment
-        run: sleep 180
-      
-      - name: Check staging deployment with retry
-        run: |
-          DEPLOY_URL="${{ needs.deploy-feature.outputs.url }}"
-          EXPECTED_SHA="${{ github.sha }}"
-          
-          for i in {1..2}; do
-            echo "Intento $i: Verificando despliegue..."
-            
-            # Verificar si el sitio está accesible
-            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $DEPLOY_URL)
-            if [ $HTTP_STATUS -ne 200 ]; then
-              echo "Sitio no accesible (HTTP $HTTP_STATUS)"
-              if [ $i -eq 2 ]; then exit 1; fi
-              echo "Esperando 180 segundos antes del siguiente intento..."
-              sleep 180
-              continue
-            fi
-            
-            # Verificar la versión desplegada
-            DEPLOYED_VERSION=$(curl -s "${DEPLOY_URL}/version.json")
-            DEPLOYED_SHA=$(echo $DEPLOYED_VERSION | grep -o '"version": "[^"]*"' | cut -d'"' -f4)
-            
-            if [ "$DEPLOYED_SHA" = "$EXPECTED_SHA" ]; then
-              echo "✅ Verificación exitosa!"
-              echo "Versión desplegada coincide con commit: $EXPECTED_SHA"
-              exit 0
-            fi
-            
-            echo "❌ Versión no coincide!"
-            echo "Esperada: $EXPECTED_SHA"
-            echo "Encontrada: $DEPLOYED_SHA"
-            
-            if [ $i -eq 2 ]; then
-              echo "Verificación fallida después de 2 intentos"
-              exit 1
-            fi
-            
-            echo "Esperando 180 segundos antes del siguiente intento..."
-            sleep 180
-          done
-
   deploy-production:
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    outputs:
-      url: ${{ steps.deployment.outputs.url }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.url }}
@@ -115,52 +56,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  verify-production:
-    needs: deploy-production
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait for initial deployment
-        run: sleep 180
-      
-      - name: Check production deployment with retry
-        run: |
-          DEPLOY_URL="${{ needs.deploy-production.outputs.url }}"
-          EXPECTED_SHA="${{ github.sha }}"
-          
-          for i in {1..2}; do
-            echo "Intento $i: Verificando despliegue..."
-            
-            # Verificar si el sitio está accesible
-            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $DEPLOY_URL)
-            if [ $HTTP_STATUS -ne 200 ]; then
-              echo "Sitio no accesible (HTTP $HTTP_STATUS)"
-              if [ $i -eq 2 ]; then exit 1; fi
-              echo "Esperando 180 segundos antes del siguiente intento..."
-              sleep 180
-              continue
-            fi
-            
-            # Verificar la versión desplegada
-            DEPLOYED_VERSION=$(curl -s "${DEPLOY_URL}/version.json")
-            DEPLOYED_SHA=$(echo $DEPLOYED_VERSION | grep -o '"version": "[^"]*"' | cut -d'"' -f4)
-            
-            if [ "$DEPLOYED_SHA" = "$EXPECTED_SHA" ]; then
-              echo "✅ Verificación exitosa!"
-              echo "Versión desplegada coincide con commit: $EXPECTED_SHA"
-              exit 0
-            fi
-            
-            echo "❌ Versión no coincide!"
-            echo "Esperada: $EXPECTED_SHA"
-            echo "Encontrada: $DEPLOYED_SHA"
-            
-            if [ $i -eq 2 ]; then
-              echo "Verificación fallida después de 2 intentos"
-              exit 1
-            fi
-            
-            echo "Esperando 180 segundos antes del siguiente intento..."
-            sleep 180
-          done
