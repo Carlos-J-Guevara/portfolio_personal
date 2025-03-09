@@ -23,10 +23,10 @@ jobs:
           node-version: '20'
           
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
         
       - name: Build project
-        run: npm run build
+        run: npm run build --legacy-peer-deps
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
