@@ -1,14 +1,15 @@
 {
   "name": "portfolio_personal",
   "version": "1.0.0",
-  "description": "<!-- Portafolio, para demostrar habilidades. -->",
-  "main": "index.js",
+  "description": "Portafolio para demostrar habilidades",
+  "main": "main.js",
   "scripts": {
     "lint:js": "eslint .",
     "lint:css": "stylelint '**/*.{css,scss}'",
-    "lint:html": "htmlhint 'public/**/*.html'",
+    "lint:html": "htmlhint '**/*.html'",
     "format": "prettier --write . && npm run lint:js && npm run lint:css && npm run lint:html",
-    "check": "npm run format"
+    "check": "npm run format",
+    "build": "mkdir -p dist && cp -r *.html *.css *.js dist/ && [ -d images ] && cp -r images dist/ || echo 'No images directory found'"
   },
   "keywords": [],
   "author": "",
