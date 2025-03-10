@@ -37,22 +37,34 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/heads/feature/')
     runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages-staging
-      url: ${{ steps.deployment.outputs.url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Output deployment URL
+        run: echo "Deployment URL - ${GITHUB_PAGES_URL}"
+        env:
+          GITHUB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
 
   deploy-production:
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Output deployment URL
+        run: echo "Deployment URL - ${GITHUB_PAGES_URL}"
+        env:
+          GITHUB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
