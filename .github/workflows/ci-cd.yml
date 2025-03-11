@@ -37,34 +37,30 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/heads/feature/')
     runs-on: ubuntu-latest
-    outputs:
-      url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages-staging
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Move files to staging subfolder
+        run: |
+          mkdir -p staging
+          cp -r dist/* staging/
+      - name: Deploy to GitHub Pages (Staging)
         uses: actions/deploy-pages@v4
       - name: Output deployment URL
-        run: echo "Deployment URL - ${GITHUB_PAGES_URL}"
-        env:
-          GITHUB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: echo "Staging URL - https://${{ github.repository_owner }}.github.io/${{ github.repository }}/staging"
 
   deploy-production:
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    outputs:
-      url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Move files to production subfolder
+        run: |
+          mkdir -p prod
+          cp -r dist/* prod/
+      - name: Deploy to GitHub Pages (Production)
         uses: actions/deploy-pages@v4
       - name: Output deployment URL
-        run: echo "Deployment URL - ${GITHUB_PAGES_URL}"
-        env:
-          GITHUB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: echo "Production URL - https://${{ github.repository_owner }}.github.io/${{ github.repository }}/prod"
