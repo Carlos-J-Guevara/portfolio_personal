@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 'feature/**'
+      - feature/**
 
 permissions:
   contents: read
@@ -31,11 +31,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist  # Asegúrate de que este path sea correcto
 
   deploy-feature:
     needs: build
-    if: startsWith(github.ref, 'refs/heads/feature/')
+    if: startsWith(github.ref, 'refs/heads/feature/')  # Solo se ejecuta en ramas feature/*
     runs-on: ubuntu-latest
     environment:
       name: github-pages-staging
@@ -43,7 +43,7 @@ jobs:
       - name: Move files to staging subfolder
         run: |
           mkdir -p staging
-          cp -r dist/* staging/
+          cp -r dist/* staging/  # Copia los archivos a la subcarpeta staging
       - name: Deploy to GitHub Pages (Staging)
         uses: actions/deploy-pages@v4
       - name: Output deployment URL
@@ -51,7 +51,7 @@ jobs:
 
   deploy-production:
     needs: build
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'  # Solo se ejecuta en la rama main
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -59,7 +59,7 @@ jobs:
       - name: Move files to production subfolder
         run: |
           mkdir -p prod
-          cp -r dist/* prod/
+          cp -r dist/* prod/  # Copia los archivos a la subcarpeta prod
       - name: Deploy to GitHub Pages (Production)
         uses: actions/deploy-pages@v4
       - name: Output deployment URL
