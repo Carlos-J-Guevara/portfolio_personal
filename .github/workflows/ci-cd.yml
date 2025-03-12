@@ -29,9 +29,9 @@ jobs:
         run: npm run build --legacy-peer-deps
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3  
         with:
-          path: ./dist  # Usamos 'dist' porque es la carpeta que genera tu comando build
+          path: ./dist
 
   deploy-feature:
     needs: build
@@ -40,10 +40,15 @@ jobs:
     environment:
       name: github-pages-staging
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4 
+        with:
+          name: github-pages 
+          path: ./dist
       - name: Move files to staging subfolder
         run: |
           mkdir -p staging
-          cp -r dist/* staging/  # Copiamos los archivos de 'dist' a 'staging'
+          cp -r dist/* staging/
       - name: Deploy to GitHub Pages (Staging)
         uses: actions/deploy-pages@v4
       - name: Output deployment URL
@@ -56,10 +61,15 @@ jobs:
     environment:
       name: github-pages
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4 
+        with:
+          name: github-pages 
+          path: ./dist
       - name: Move files to production subfolder
         run: |
           mkdir -p prod
-          cp -r dist/* prod/  # Copiamos los archivos de 'dist' a 'prod'
+          cp -r dist/* prod/
       - name: Deploy to GitHub Pages (Production)
         uses: actions/deploy-pages@v4
       - name: Output deployment URL
