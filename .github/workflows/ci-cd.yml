@@ -7,12 +7,10 @@ on:
       - feature/**
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,49 +26,34 @@ jobs:
       - name: Build project
         run: npm run build --legacy-peer-deps
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  
-        with:
-          path: ./dist
-
-  deploy-feature:
-    needs: build
-    if: startsWith(github.ref, 'refs/heads/feature/')
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages-staging
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4 
-        with:
-          name: github-pages 
-          path: ./dist
-      - name: Move files to staging subfolder
+      # Determinar entorno y configurar variables
+      - name: Set deployment variables
+        id: vars
         run: |
-          mkdir -p staging
-          cp -r dist/* staging/
-      - name: Deploy to GitHub Pages (Staging)
-        uses: actions/deploy-pages@v4
-      - name: Output deployment URL
-        run: echo "Staging URL - https://${{ github.repository_owner }}.github.io/${{ github.repository }}/staging"
-
-  deploy-production:
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4 
+          if [[ $GITHUB_REF == refs/heads/main ]]; then
+            echo "DEPLOY_FOLDER=prod" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=production" >> $GITHUB_ENV
+          else
+            echo "DEPLOY_FOLDER=staging" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=staging" >> $GITHUB_ENV
+          fi
+      
+      # Configurar para desplegar a gh-pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: github-pages 
-          path: ./dist
-      - name: Move files to production subfolder
+          branch: gh-pages
+          folder: dist
+          target-folder: ${{ env.DEPLOY_FOLDER }}
+          clean: true
+          clean-exclude: |
+            staging/**
+            prod/**
+      
+      # Mostrar URLs de despliegue en los logs
+      - name: Display deployment URLs
         run: |
-          mkdir -p prod
-          cp -r dist/* prod/
-      - name: Deploy to GitHub Pages (Production)
-        uses: actions/deploy-pages@v4
-      - name: Output deployment URL
-        run: echo "Production URL - https://${{ github.repository_owner }}.github.io/${{ github.repository }}/prod"
+          echo "================================================="
+          echo "✅ ${{ env.DEPLOY_ENV }} deployment completed!"
+          echo "🌐 URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.DEPLOY_FOLDER }}/"
+          echo "================================================="
