@@ -6,54 +6,66 @@ on:
       - main
       - feature/**
 
-permissions:
-  contents: write
-
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
+      # Paso 1: Checkout del repositorio
       - uses: actions/checkout@v4
       
+      # Paso 2: Configura Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           
+      # Paso 3: Instalar dependencias
       - name: Install dependencies
         run: npm install --legacy-peer-deps
         
+      # Paso 4: Construir el proyecto
       - name: Build project
-        run: npm run build --legacy-peer-deps
+        run: npm run build
 
-      # Determinar entorno y configurar variables
-      - name: Set deployment variables
-        id: vars
-        run: |
-          if [[ $GITHUB_REF == refs/heads/main ]]; then
-            echo "DEPLOY_FOLDER=prod" >> $GITHUB_ENV
-            echo "DEPLOY_ENV=production" >> $GITHUB_ENV
-          else
-            echo "DEPLOY_FOLDER=staging" >> $GITHUB_ENV
-            echo "DEPLOY_ENV=staging" >> $GITHUB_ENV
-          fi
-      
-      # Configurar para desplegar a gh-pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      # Paso 5: Subir la carpeta `dist` como artefacto
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          branch: gh-pages
-          folder: dist
-          target-folder: ${{ env.DEPLOY_FOLDER }}
-          clean: true
-          clean-exclude: |
-            staging/**
-            prod/**
-      
-      # Mostrar URLs de despliegue en los logs
-      - name: Display deployment URLs
-        run: |
-          echo "================================================="
-          echo "✅ ${{ env.DEPLOY_ENV }} deployment completed!"
-          echo "🌐 URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.DEPLOY_FOLDER }}/"
-          echo "================================================="
+          name: dist
+          path: ./dist
+
+  deploy-feature:
+    needs: build
+    if: startsWith(github.ref, 'refs/heads/feature/')
+    runs-on: ubuntu-latest
+    steps:
+      # Paso 1: Descargar el artefacto (`dist`)
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+
+      # Paso 2: Desplegar en Netlify
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@v2
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=dist --prod
+
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      # Paso 1: Desplegar en GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+      # Paso 2: Mostrar la URL de producción
+      - name: Output deployment URL
+        run: echo "Production URL - https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
