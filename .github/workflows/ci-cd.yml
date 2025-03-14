@@ -32,18 +32,41 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          name: github-pages
 
   deploy-feature:
     needs: build
     if: startsWith(github.ref, 'refs/heads/feature/')
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages-staging
-      url: ${{ steps.deployment.outputs.url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./dist
+
+      - name: Debug Environment
+        run: |
+          echo "Checking Netlify Configuration..."
+          echo "Auth Token exists: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}"
+          echo "Site ID exists: ${{ secrets.NETLIFY_SITE_ID != '' }}"
+          echo "Current branch: ${{ github.ref }}"
+          ls -la ./dist
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          publish-dir: './dist'
+          production-branch: feature
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          alias: preview-${{ github.sha }}
 
   deploy-production:
     needs: build
@@ -51,8 +74,13 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      
+      - name: Output deployment URL
+        run: echo "Production URL - ${GITHUB_PAGES_URL}"
+        env:
+          GITHUB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
