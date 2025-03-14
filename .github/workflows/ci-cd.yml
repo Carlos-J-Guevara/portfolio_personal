@@ -4,34 +4,33 @@ on:
   push:
     branches:
       - main
-      - feature/**
+      - 'feature/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Paso 1: Checkout del repositorio
       - uses: actions/checkout@v4
       
-      # Paso 2: Configura Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           
-      # Paso 3: Instalar dependencias
       - name: Install dependencies
         run: npm install --legacy-peer-deps
         
-      # Paso 4: Construir el proyecto
       - name: Build project
-        run: npm run build
+        run: npm run build --legacy-peer-deps
 
-      # Paso 5: Subir la carpeta `dist` como artefacto
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dist
           path: ./dist
 
   deploy-feature:
@@ -39,33 +38,19 @@ jobs:
     if: startsWith(github.ref, 'refs/heads/feature/')
     runs-on: ubuntu-latest
     steps:
-      # Paso 1: Descargar el artefacto (`dist`)
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
 
-      # Paso 2: Desplegar en Netlify
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@v2
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        uses: nwtgck/actions-netlify@v2.0
         with:
-          args: deploy --dir=dist --prod
-
-  deploy-production:
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-    steps:
-      # Paso 1: Desplegar en GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
-
-      # Paso 2: Mostrar la URL de producción
-      - name: Output deployment URL
-        run: echo "Production URL - https://${{ github.repository_owner }}.github.io/${{ github.repository }}"
+          publish-dir: './dist'
+          production-branch: feature
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
