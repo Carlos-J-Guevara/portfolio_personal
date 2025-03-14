@@ -45,8 +45,19 @@ jobs:
           name: github-pages
           path: ./dist
 
+      - name: Debug Environment
+        run: |
+          echo "Checking Netlify Configuration..."
+          echo "Auth Token exists: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}"
+          echo "Site ID exists: ${{ secrets.NETLIFY_SITE_ID != '' }}"
+          echo "Current branch: ${{ github.ref }}"
+          ls -la ./dist
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           publish-dir: './dist'
           production-branch: feature
@@ -55,10 +66,8 @@ jobs:
           enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
+          alias: preview-${{ github.sha }}
+          
   deploy-production:
     needs: build
     if: github.ref == 'refs/heads/main'
