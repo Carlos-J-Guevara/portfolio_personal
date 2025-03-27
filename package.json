@@ -8,7 +8,8 @@
     "lint:css": "stylelint '**/*.{css,scss}'",
     "lint:html": "htmlhint 'public/**/*.html'",
     "format": "prettier --write . && npm run lint:js && npm run lint:css && npm run lint:html",
-    "check": "npm run format"
+    "check": "npm run format",
+    "build": "webpack --mode production --config webpack.config.js && babel src --out-dir dist && sass styles --output-style compressed --output-file dist/styles.css && eslint src --fix"
   },
   "keywords": [],
   "author": "",
