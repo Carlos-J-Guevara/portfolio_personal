@@ -1,11 +1,16 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": [
+    "stylelint-prettier"
+  ],
   "rules": {
+    "prettier/prettier": true,
     "comment-empty-line-before": "always",
-    "comment-whitespace-inside": "always",
-    "length-zero-no-unit": true,
-    "font-family-no-missing-generic-family-keyword": true,
+    "function-calc-no-invalid": null,
     "no-descending-specificity": null,
-    "selector-class-pattern": null
+    "declaration-block-no-redundant-longhand-properties": null
   }
 }
