@@ -9,7 +9,7 @@
     "lint:html": "htmlhint 'public/**/*.html'",
     "format": "prettier --write . && npm run lint:js && npm run lint:css && npm run lint:html",
     "check": "npm run format",
-    "build": "tsc && cp index.html dist/ && cp -r images/ dist/images/ && cp general_styles.css dist/"
+    "build": "rm -rf dist && mkdir dist && tsc && cp index.html dist/ && cp -r images/ dist/ && cp general_styles.css dist/"
   },
   "keywords": [],
   "author": "",
