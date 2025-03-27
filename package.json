@@ -9,7 +9,7 @@
     "lint:html": "htmlhint 'public/**/*.html'",
     "format": "prettier --write . && npm run lint:js && npm run lint:css && npm run lint:html",
     "check": "npm run format",
-    "build": "rm -rf dist/ && tsc && webpack --mode production --config webpack.config.js && sass src/styles/main.scss dist/styles.css --style=compressed --no-source-map && cp src/*.html dist/"
+    "build": "tsc && cp index.html dist/ && cp -r images/ dist/images/ && cp general_styles.css dist/"
   },
   "keywords": [],
   "author": "",
