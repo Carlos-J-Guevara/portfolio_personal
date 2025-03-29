@@ -30,10 +30,6 @@ jobs:
       - name: Build project
         run: npm run build --legacy-peer-deps
 
-      - name: Create dist.tar
-        run: |
-          tar -cvf ./dist/dist.tar ./dist
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -56,14 +52,9 @@ jobs:
       - name: List files in dist directory
         run: ls -la ./dist  # Verifica el contenido de dist antes de la descompresión
 
-      - name: Verify tar file integrity
+      - name: Extract artifact.tar
         run: |
-          file ./dist/dist.tar  # Verifica el tipo de archivo (debería ser tar)
-          tar -tvf ./dist/dist.tar  # Muestra el contenido del tar sin descomprimirlo
-
-      - name: Extract dist.tar
-        run: |
-          tar -xvf ./dist/dist.tar -C ./dist  # Descomprimir el archivo tar
+          tar -xvf ./dist/artifact.tar -C ./dist  # Descomprimir el archivo tar
           ls -la ./dist  # Verifica el contenido de dist después de la extracción
 
       - name: Debug Environment
