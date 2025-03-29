@@ -12,7 +12,7 @@
   --border-radius-titulos: 3vw;
 }
 
-/* Mobile Layout */
+/* Mobile Layout  */
 @media screen and (width <= 600px) {
   body {
     /* Positioning */
