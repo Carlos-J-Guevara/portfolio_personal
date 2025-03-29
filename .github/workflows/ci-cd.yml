@@ -49,18 +49,13 @@ jobs:
           name: github-pages
           path: ./dist
 
-      - name: Extract dist.tar
-        run: |
-          tar -xvf ./dist/dist.tar -C ./dist  # Descomprimir el archivo tar
-          ls -la ./dist  # Verifica el contenido de dist después de la extracción
-
       - name: Debug Environment
         run: |
           echo "Checking Netlify Configuration..."
           echo "Auth Token exists: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}"
           echo "Site ID exists: ${{ secrets.NETLIFY_SITE_ID != '' }}"
           echo "Current branch: ${{ github.ref }}"
-          ls -la ./dist  # Verifica el contenido de dist después de la extracción
+          ls -la ./dist  # Verifica el contenido de dist después de la descarga
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
@@ -93,3 +88,4 @@ jobs:
         run: echo "Production URL - ${GITHUB_PAGES_URL}"
         env:
           GITHUB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+
