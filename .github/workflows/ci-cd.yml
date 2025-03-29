@@ -18,20 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
+          
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-
+        
       - name: Build project
         run: npm run build --legacy-peer-deps
-
-      - name: List contents of dist folder (for debugging)
-        run: ls -la ./dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -52,13 +49,18 @@ jobs:
           name: github-pages
           path: ./dist
 
+      - name: Extract dist.tar
+        run: |
+          tar -xvf ./dist/dist.tar -C ./dist  # Descomprimir el archivo tar
+          ls -la ./dist  # Verifica el contenido de dist después de la extracción
+
       - name: Debug Environment
         run: |
           echo "Checking Netlify Configuration..."
           echo "Auth Token exists: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}"
           echo "Site ID exists: ${{ secrets.NETLIFY_SITE_ID != '' }}"
           echo "Current branch: ${{ github.ref }}"
-          ls -la ./dist
+          ls -la ./dist  # Verifica el contenido de dist después de la extracción
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
@@ -86,7 +88,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
+      
       - name: Output deployment URL
         run: echo "Production URL - ${GITHUB_PAGES_URL}"
         env:
