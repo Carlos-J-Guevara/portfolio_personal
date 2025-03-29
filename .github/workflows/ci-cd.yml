@@ -18,17 +18,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          
+
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-        
+
       - name: Build project
         run: npm run build --legacy-peer-deps
+
+      - name: List contents of dist folder (for debugging)
+        run: ls -la ./dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -83,7 +86,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      
+
       - name: Output deployment URL
         run: echo "Production URL - ${GITHUB_PAGES_URL}"
         env:
