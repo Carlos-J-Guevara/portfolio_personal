@@ -1,1 +1,1 @@
-Portafolio personal, para demostrar habilidades.
+Portfolio personal, to show skills.

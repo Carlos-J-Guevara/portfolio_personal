@@ -39,13 +39,13 @@
     width: 3.5em;
   }
 
-  #emblema_carlos_header {
+  #emblem_carlos_header {
     display: flex;
     justify-content: end;
     flex-direction: row;
     position: relative;
     right: 80vw;
-    top: 2vw;
+    top: 1vw;
   }
 
   /* menu at header */
@@ -63,6 +63,7 @@
     z-index: 1000;
     border: 2px solid var(--color-azul-bordes);
     border-radius: 1vw;
+    text-align: center;
   }
 
   .menu_navegation li {
@@ -98,7 +99,7 @@
     width: 4em;
     max-width: 100%;
     position: relative;
-    bottom: 3.5em;
+    bottom: 6.5em;
   }
 
   @media screen and (width <= 360px) {
@@ -117,7 +118,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(images/wallpapers/mobile_especial/fondo_owner_mobile.jpg);
+    background-image: url(images/wallpapers/mobile/background_owner_mobile.jpg);
   }
 
   #content_of_owner {
@@ -349,7 +350,7 @@
 
   /* tools frameworks and libraries  */
   .container_tools_libraries_frameworks {
-    background-image: url(images/wallpapers/mobile_especial/background_tools_libraries.png);
+    background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
     position: relative;
     bottom: 25.5vw;
     display: flex;
@@ -538,7 +539,7 @@
 
   /* portfolio  */
   .container_portfolio {
-    background-image: url(images/wallpapers/fondo_de_avion_destok.jpg);
+    background-image: url(images/wallpapers/mobile/background_of_plane_mobile.jpg);
     position: relative;
     bottom: 40vw;
     height: 250vw;
@@ -613,7 +614,7 @@
     margin-bottom: 4vw;
     color: var(--color-letra-titulos);
     font-size: 3vw;
-    width: 22%;
+    width: 24%;
     padding-top: 1vw;
     padding-bottom: 1vw;
     font-weight: bold;
@@ -671,6 +672,7 @@
     margin: 2vw;
     width: 80%;
     font-weight: 100;
+    text-align: justify;
   }
 
   /* settings of image  */
@@ -689,7 +691,7 @@
     margin-bottom: 4vw;
     color: var(--color-letra-titulos);
     font-size: 3vw;
-    width: 22%;
+    width: 24%;
     padding-top: 1vw;
     padding-bottom: 1vw;
     font-weight: bold;
@@ -827,6 +829,8 @@
     margin-left: 2vw;
     margin-right: 2vw;
     width: 20vw;
+    position: relative;
+    bottom: 0vw;
   }
 
   /* styles diferent for links section 2 */
@@ -837,7 +841,7 @@
 
   /* <!-- section of contact --> */
   .container_contact {
-    background-image: url(images/wallpapers/mobile_especial/fondo_contact_mobile.png);
+    background-image: url(images/wallpapers/mobile/backgroud_contact_mobile.jpg);
     height: 200vw;
     width: 100vw;
     position: relative;
@@ -937,7 +941,7 @@
 
   /* styles of image at contact area  */
   .container_contact img {
-    width: 25vw;
+    width: 20vw;
     border-radius: 100%;
     margin-left: 7vw;
     position: relative;
@@ -990,6 +994,7 @@
     width: 14vw;
     position: relative;
     top: 2vw;
+    right: 2vw;
   }
 
   .emblema_y_description h3 {
