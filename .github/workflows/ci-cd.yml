@@ -23,6 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
           
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -30,10 +31,21 @@ jobs:
       - name: Build project
         run: npm run build --legacy-peer-deps
 
+      - name: Prepare distribution files
+        run: |
+          mkdir -p dist
+          # Only copy files tracked by Git
+          git ls-files | while read file; do
+            mkdir -p "dist/$(dirname "$file")"
+            cp "$file" "dist/$file"
+          done
+          echo "Files copied to dist (respecting .gitignore):"
+          ls -la dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist
           name: github-pages
 
   deploy-feature:
@@ -49,21 +61,21 @@ jobs:
           name: github-pages
           path: ./dist
 
-      - name: List files in dist directory
-        run: ls -la ./dist  # Verifica el contenido de dist antes de la descompresión
+      - name: List distribution contents
+        run: ls -la ./dist
 
-      - name: Extract artifact.tar
+      - name: Extract artifact
         run: |
-          tar -xvf ./dist/artifact.tar -C ./dist  # Descomprimir el archivo tar
-          ls -la ./dist  # Verifica el contenido de dist después de la extracción
+          tar -xvf ./dist/artifact.tar -C ./dist
+          ls -la ./dist
 
-      - name: Debug Environment
+      - name: Verify deployment settings
         run: |
-          echo "Checking Netlify Configuration..."
+          echo "Verifying Netlify Configuration..."
           echo "Auth Token exists: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}"
           echo "Site ID exists: ${{ secrets.NETLIFY_SITE_ID != '' }}"
           echo "Current branch: ${{ github.ref }}"
-          ls -la ./dist  # Verifica el contenido de dist después de la extracción
+          ls -la ./dist
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
@@ -72,9 +84,9 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           publish-dir: './dist'
-          production-branch: feature
+          production: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
+          deploy-message: "Deploy from GitHub Actions (Feature Branch)"
           enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
@@ -88,6 +100,28 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./dist
+
+      - name: Extract artifact
+        run: |
+          tar -xvf ./dist/artifact.tar -C ./dist
+          ls -la ./dist
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          publish-dir: './dist'
+          production: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions (Production)"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
