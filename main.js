@@ -4,9 +4,14 @@
 const menuNavegation = document.getElementById('menuDesplegable');
 const menuIcono = document.getElementById('iconoMenu');
 // LOGIC:
-menuIcono.addEventListener('click', () => {
-    menuNavegation.style.display = 'flex';
-});
-menuNavegation.addEventListener('click', () => {
-    menuNavegation.style.display = 'none';
-});
+const initMobileMenu = () => {
+    if (window.innerWidth <= 600) {
+        menuIcono.addEventListener('click', () => {
+            menuNavegation.style.display = 'flex';
+        });
+        menuNavegation.addEventListener('click', () => {
+            menuNavegation.style.display = 'none';
+        });
+    }
+};
+initMobileMenu();

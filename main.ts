@@ -10,10 +10,15 @@ const menuIcono: HTMLImageElement = document.getElementById(
 ) as HTMLImageElement;
 
 // LOGIC:
-menuIcono.addEventListener('click', () => {
-  menuNavegation.style.display = 'flex';
-});
+const initMobileMenu = (): void => {
+  if (window.innerWidth <= 600) {
+    menuIcono.addEventListener('click', () => {
+      menuNavegation.style.display = 'flex';
+    });
 
-menuNavegation.addEventListener('click', () => {
-  menuNavegation.style.display = 'none';
-});
+    menuNavegation.addEventListener('click', () => {
+      menuNavegation.style.display = 'none';
+    });
+  }
+};
+initMobileMenu();
