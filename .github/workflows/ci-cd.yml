@@ -34,10 +34,10 @@ jobs:
       - name: Prepare distribution files
         run: |
           mkdir -p dist
-          # Only copy files tracked by Git
-          git ls-files | while read file; do
+          # Handle files with spaces using null-terminated input
+          git ls-files -z | while IFS= read -r -d '' file; do
             mkdir -p "dist/$(dirname "$file")"
-            cp "$file" "dist/$file"
+            cp -p "$file" "dist/$file"
           done
           echo "Files copied to dist (respecting .gitignore):"
           ls -la dist/
