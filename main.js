@@ -1,27 +1,28 @@
 "use strict";
-// menu of view in phone which appears when the user clicks on the icon of the menu.
-// DOM:
-const menuNavegation = document.getElementById('menuDesplegable');
-const menuIcono = document.getElementById('iconoMenu');
-// Menu State
-let isMenuOpen = false;
-// Toggle menu function
-const toggleMenu = () => {
-    isMenuOpen = !isMenuOpen;
-    menuNavegation.style.display = isMenuOpen ? 'flex' : 'none';
-};
-// Mobile menu handler
+// Function to initialize the mobile menu behavior
 const initMobileMenu = () => {
+    // Get the menu element by its ID. It can be null if not found.
+    const menuNavigation = document.getElementById('menuDesplegable');
+    // Get the menu icon element by its ID. It can be null if not found.
+    const menuIcon = document.getElementById('iconoMenu');
+    // Check if both elements exist to avoid runtime errors
+    if (!menuNavigation || !menuIcon) {
+        console.warn('Menu elements not found. Please verify that the IDs are correct.');
+        return;
+    }
+    // Check if the window width is less than or equal to 600 pixels (mobile devices)
     if (window.innerWidth <= 600) {
-        // Remove existing listeners to prevent duplicates
-        menuIcono.removeEventListener('click', toggleMenu);
-        menuNavegation.removeEventListener('click', toggleMenu);
-        // Add new listeners
-        menuIcono.addEventListener('click', toggleMenu);
-        menuNavegation.addEventListener('click', toggleMenu);
+        // When the menu icon is clicked, display the navigation menu with flex layout
+        menuIcon.addEventListener('click', () => {
+            menuNavigation.style.display = 'flex';
+        });
+        // When the navigation menu is clicked, hide it
+        menuNavigation.addEventListener('click', () => {
+            menuNavigation.style.display = 'none';
+        });
     }
 };
-// Initialize
-initMobileMenu();
-// Listen for window resize
-window.addEventListener('resize', initMobileMenu);
+// Wait for the DOM to be fully loaded before running our script
+window.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+});
