@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,17 +10,26 @@
   </head>
   <body>
     <!-- header -->
-    <header class="container_header">
+    <header class="container_header" id="headerArea">
       <div class="emblema_personal">
-        <img src="images/emblema_Carlos.png" alt="Emblema personal" />
+        <img
+          src="images/emblem_Carlos.svg"
+          alt="Emblem personal"
+          id="emblem_carlos_header"
+        />
+        <img
+          src="images/icons/menu.svg"
+          alt="menu_desplegable"
+          id="iconoMenu"
+        />
       </div>
-      <nav class="menu_navegation">
+      <nav class="menu_navegation" id="menuDesplegable">
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobremi">Sobre Mí</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#headerArea">HOME</a></li>
+          <li><a href="#aboutmeArea">ABOUT ME</a></li>
+          <li><a href="#technologiesArea">SKILLS</a></li>
+          <li><a href="#portfolioArea">PORTFOLIO</a></li>
+          <li><a href="#contactoArea">CONTACT</a></li>
         </ul>
       </nav>
     </header>
@@ -28,369 +37,650 @@
     <!-- me central at starting of the page -->
     <section class="owner_of_the_website">
       <article id="content_of_owner">
-        <img src="images/Carlos_foto.png" alt="Picture of the owner" />
-        <h2>CARLOS GUEVARA</h2>
-        <h3>Desarrollador Front-end</h3>
         <a
-          href="https://www.linkedin.com/in/carlos-jose-angel-guevara-micciollo-a0925616b/"
-          ><img src="images/icons/LINKEDIN.png" alt="linkedin image"
-        /></a>
-        <a href="https://github.com/Carlos-J-Guevara"
-          ><img src="images/icons/GITHUB.png" alt="Github image"
-        /></a>
+          href="https://media.licdn.com/dms/image/v2/D4E03AQFifr-FlYfp-Q/profile-displayphoto-shrink_800_800/B4EZWcFp6WGgAc-/0/1742080483665?e=1747872000&v=beta&t=kBAXr-0I7upN4lTv7wmFlCI6sxkDLT86gHGoPg-j46k"
+          target="_blank"
+          id="link_photo_owner"
+        >
+          <img
+            src="images/Carlos_photo.png"
+            alt="Picture of the owner"
+            id="pictureOwner"
+          />
+        </a>
+        <h2 id="nameOwnerH2">CARLOS GUEVARA</h2>
+        <h3 id="descriptionOwnerH3">Front-end Developer</h3>
+        <div class="social_media">
+          <a
+            href="https://www.linkedin.com/in/carlos-j-guevara/"
+            target="_blank"
+            ><img
+              src="images/icons/LINKEDIN.svg"
+              alt="linkedin image"
+              class="icon_socia_media"
+          /></a>
+          <a href="https://github.com/Carlos-J-Guevara" target="_blank"
+            ><img
+              src="images/icons/GITHUB.svg"
+              alt="Github image"
+              class="icon_socia_media"
+          /></a>
+        </div>
       </article>
     </section>
 
     <!-- section about me -->
-    <section class="container_aboutme">
-      <h1>Sobre Mí</h1>
-
-      <p>
-        Apasionado por la tecnología y la programación, con experiencia en
-        desarrollo web, he utilizado JavaScript, TypeScript, HTML, CSS y Python.
-        Me he capacitado en herramientas y metodologías clave como ESLint,
-        Prettier, Git, GitHub y Cloud Computing, lo que me permite escribir
-        código limpio, escalable y eficiente.
-      </p>
-      <br />
-      <p>
-        Obtuve un certificado profesional en soporte técnico en tecnologías de
-        Información de Google, fortaleciendo mi capacidad para resolver
-        problemas y trabajar en entornos colaborativos.
-      </p>
-      <br />
-      <p>
-        Actualmente, me enfoco en mejorar mis habilidades en desarrollo
-        front-end y en la creación de aplicaciones interactivas y optimizadas.
-        Siempre en búsqueda de nuevos desafíos y oportunidades para seguir
-        aprendiendo.
-      </p>
+    <section class="container_aboutme" id="aboutmeArea">
+      <h1>About me</h1>
       <img
-        src="images/related_about_me.jpg"
-        alt="Relacionado a la descripción"
+        src="images/wallpapers/desktop/photo_aboutme.png"
+        alt="descriptive_image"
       />
+      <div class="description_aboutme_div">
+        <p>
+          Passionate about technology and programming, with experience in web
+          development, I have worked with JavaScript, TypeScript, HTML, CSS, and
+          Python. I have trained in key tools and methodologies such as ESLint,
+          Prettier, Git, GitHub, and Cloud Computing, allowing me to write
+          clean, scalable, and efficient code.
+        </p>
+
+        <p>
+          I earned a professional certificate in IT Support from Google,
+          strengthening my ability to solve problems and work in collaborative
+          environments.
+        </p>
+
+        <p>
+          Currently, I am focused on improving my front-end development skills
+          and creating interactive and optimized applications. I am always
+          looking for new challenges and opportunities to keep learning.
+        </p>
+      </div>
     </section>
 
     <!-- section tech -->
-    <section class="container_tech">
-      <h1>Tecnologías</h1>
-      <!-- section into tech 1 -->
-      <div class="section_tech1">
-        <img src="images/icons/HTML.png" alt="HTML image" />
-        <p id="titulo_icon_html">HTML</p>
+    <section class="container_tech" id="technologiesArea">
+      <h1>Skills</h1>
+      <h2>Technologies</h2>
 
-        <img src="images/icons/CSS.png" alt="CSS image" />
-        <p id="titulo_icon_css">CSS</p>
+      <!-- card which will be displayed the global tech -->
+      <div class="global_tech">
+        <!-- section into tech 1 -->
+        <div class="section_tech1">
+          <a
+            href="https://www.coursera.org/account/accomplishments/verify/RQBC7G7QOEFI"
+            target="_blank"
+          >
+            <img src="images/icons/HTML.svg" alt="HTML image" id="icon_html" />
+          </a>
+          <p id="titulo_icon_html">HTML</p>
 
-        <img src="images/icons/PYTHON.png" alt="Python image" />
-        <p id="titulo_icon_python">PYTHON</p>
-      </div>
+          <a
+            href="https://www.coursera.org/account/accomplishments/verify/RQBC7G7QOEFI"
+            target="_blank"
+          >
+            <img src="images/icons/CSS.svg" alt="CSS image" id="icon_css" />
+          </a>
+          <p id="titulo_icon_css">CSS</p>
 
-      <!-- section into tech 2 -->
-      <div class="section_tech2">
-        <img src="images/icons/TYPESCRIPT.png" alt="TYPESCRIPT image" />
-        <p id="titulo_icon_typescript">TYPESCRIPT</p>
+          <a
+            href="https://www.coursera.org/account/accomplishments/verify/RYMT33DSSLLV"
+            target="_blank"
+          >
+            <img
+              src="images/icons/PYTHON.svg"
+              alt="Python image"
+              id="icon_python"
+            />
+          </a>
+          <p id="titulo_icon_python">PYTHON</p>
+        </div>
 
-        <img src="images/icons/GIT.png" alt="GIT image" />
-        <p id="titulo_icon_git">GIT</p>
+        <!-- section into tech 2 -->
+        <div class="section_tech2">
+          <a
+            href="https://learn.microsoft.com/es-es/users/carlosjoseangelguevaramicciollo-1002/achievements/fvkeyjax"
+            target="_blank"
+          >
+            <img
+              src="images/icons/TYPESCRIPT.svg"
+              alt="TYPESCRIPT image"
+              id="icon_typescript"
+            />
+          </a>
+          <p id="titulo_icon_typescript">TYPESCRIPT</p>
 
-        <img src="images/icons/JAVASCRIPT.png" alt="JavaScript image" />
-        <p id="titulo_icon_javascript">JAVASCRIPT</p>
+          <a
+            href="https://www.coursera.org/account/accomplishments/verify/0HLQX3173JUK"
+            target="_blank"
+          >
+            <img src="images/icons/GIT.svg" alt="GIT image" id="icon_git" />
+          </a>
+          <p id="titulo_icon_git">GIT</p>
+
+          <a
+            href="https://www.coursera.org/account/accomplishments/verify/RQBC7G7QOEFI"
+            target="_blank"
+          >
+            <img
+              src="images/icons/JAVASCRIPT.svg"
+              alt="JavaScript image"
+              id="icon_javascript"
+            />
+          </a>
+          <p id="titulo_icon_javascript">JAVASCRIPT</p>
+        </div>
       </div>
     </section>
 
     <!-- section tools libraries and frameworks-->
-    <section class="container_tools_libraries_frameworks">
-      <h1>Herramientas de desarrollo, librerías y frameworks</h1>
+    <section
+      class="container_tools_libraries_frameworks"
+      id="toolsAndLibrariesArea"
+    >
+      <h1>Development tools, libraries and frameworks</h1>
+      <article class="article_tools">
+        <!-- images_section 1 -->
+        <div class="images_section1">
+          <img
+            src="images/icons/VS CODE.svg"
+            alt="VS CODE image"
+            id="titulo_icon_vs_code_image"
+          />
 
-      <img src="images/icons/VS CODE.png" alt="VS CODE image" />
-      <p id="titulo_icon_vs_code">VS CODE</p>
+          <img
+            src="images/icons/ESLINT.svg"
+            alt="ESLINT image"
+            id="titulo_icon_eslint_image"
+          />
 
-      <img src="images/icons/ESLINT.png" alt="ESLINT image" />
-      <p id="titulo_icon_eslint">ESLINT</p>
+          <img
+            src="images/icons/PRETIER.svg"
+            alt="PRETTIER image"
+            id="titulo_icon_prettier_image"
+          />
 
-      <img src="images/icons/PRETIER.png" alt="PRETTIER image" />
-      <p id="titulo_icon_prettier">PRETTIER</p>
+          <img
+            src="images/icons/NOTION.svg"
+            alt="NOTION image"
+            id="titulo_icon_notion_image"
+          />
+        </div>
 
-      <img src="images/icons/NOTION.png" alt="NOTION image" />
-      <p id="titulo_icon_notion">NOTION</p>
+        <!-- text_section 1 -->
+        <div class="text_section1">
+          <p id="titulo_icon_vs_code">VS CODE</p>
+          <p id="titulo_icon_eslint">ESLINT</p>
+          <p id="titulo_icon_prettier">PRETTIER</p>
+          <p id="titulo_icon_notion">NOTION</p>
+        </div>
 
-      <img src="images/icons/SLACK.png" alt="SLACK image" />
-      <p id="titulo_icon_slack">SLACK</p>
+        <!-- images_section 2 -->
+        <div class="images_section2">
+          <img
+            src="images/icons/SLACK.svg"
+            alt="SLACK image"
+            id="titulo_icon_slack_image"
+          />
 
-      <img src="images/icons/JEST.png" alt="JEST image" />
-      <p id="titulo_icon_jest">JEST</p>
+          <img
+            src="images/icons/JEST.svg"
+            alt="JEST image"
+            id="titulo_icon_jest_image"
+          />
 
-      <img src="images/icons/MOCHA.png" alt="MOCHA image" />
-      <p id="titulo_icon_mocha">MOCHA</p>
+          <img
+            src="images/icons/MOCHA.svg"
+            alt="MOCHA image"
+            id="titulo_icon_mocha_image"
+          />
 
-      <img src="images/icons/HEROKU.png" alt="HEROKU image" />
-      <p id="titulo_icon_heroku">HEROKU</p>
+          <img
+            src="images/icons/HEROKU.svg"
+            alt="HEROKU image"
+            id="titulo_icon_heroku_image"
+          />
+        </div>
 
-      <img src="images/icons/CHAI.png" alt="CHAI image" />
-      <p id="titulo_icon_chai">CHAI</p>
+        <!-- text_section 2 -->
+        <div class="text_section2">
+          <p id="titulo_icon_slack">SLACK</p>
 
-      <img src="images/icons/GITLAB.png" alt="GITLAB image" />
-      <p id="titulo_icon_gitlab">GITLAB</p>
+          <p id="titulo_icon_jest">JEST</p>
 
-      <img src="images/icons/DOCKER.png" alt="DOCKER image" />
-      <p id="titulo_icon_docker">DOCKER</p>
+          <p id="titulo_icon_mocha">MOCHA</p>
+
+          <p id="titulo_icon_heroku">HEROKU</p>
+        </div>
+
+        <!-- images_section 3  -->
+        <div class="images_section3">
+          <img
+            src="images/icons/CHAI.svg"
+            alt="CHAI image"
+            id="titulo_icon_chai_image"
+          />
+
+          <img
+            src="images/icons/GITLAB.svg"
+            alt="GITLAB image"
+            id="titulo_icon_gitlab_image"
+          />
+
+          <img
+            src="images/icons/DOCKER.svg"
+            alt="DOCKER image"
+            id="titulo_icon_docker_image"
+          />
+        </div>
+
+        <!-- text_section 3 -->
+        <div class="text_section3">
+          <p id="titulo_icon_chai">CHAI</p>
+
+          <p id="titulo_icon_gitlab">GITLAB</p>
+
+          <p id="titulo_icon_docker">DOCKER</p>
+        </div>
+      </article>
     </section>
 
-    <!-- skills section  -->
-    <section class="container_soft_skills">
-      <div class="black_container_soft_skills">
-        <h1>Soft-Skills</h1>
-        <ul class="list_soft_skills1">
-          <li>TOMA DE DECISIONES</li>
-          <li>PENSAMIENTO CRÍTICO</li>
-          <li>GESTIÓN DEL TIEMPO</li>
-          <li>NTELIGENCIA EMOCIONAL</li>
-          <li>ATENCIÓN AL DETALLE</li>
+    <!-- soft skills section  -->
+    <section class="container_soft_skills" id="softSkillsArea">
+      <h1>Soft-Skills</h1>
+      <article class="black_container_soft_skills">
+        <ul id="list_soft_skills1">
+          <li>DECISION MAKING</li>
+          <li>CRITICAL THINKING</li>
+          <li>TIME MANAGEMENT</li>
+          <li>EMOTIONAL INTELLIGENCE</li>
+          <li>ATTENTION TO DETAIL</li>
+          <li>LEADERSHIP</li>
+          <li>EFFECTIVE COMMUNICATION</li>
         </ul>
 
-        <ul class="list_soft_skills2">
-          <li>LIDERAZGO</li>
-          <li>COMUNICACIÓN EFECTIVA</li>
-          <li>COMPROMISO</li>
-          <li>TRABAJO EN EQUIPO</li>
+        <ul id="list_soft_skills2">
+          <li>COMMITMENT</li>
+          <li>TEAMWORK</li>
+          <li>PROACTIVITY</li>
+          <li>HONESTY</li>
+          <li>PROBLEM SOLVING</li>
+          <li>CONTINUOUS LEARNING</li>
         </ul>
-
-        <ul class="list_soft_skills3">
-          <li>PROACTIVIDAD</li>
-          <li>HONESTIDAD</li>
-          <li>RESOLUCIÓN DE PROBLEMAS</li>
-          <li>APRENDIZAJE CONTINUO</li>
-        </ul>
-      </div>
+      </article>
     </section>
 
-    <section class="container_portfolio">
-      <h1>Portfolio</h1>
+    <!-- portfolio area from here -->
+    <section class="container_portfolio" id="portfolioArea">
+      <h2>Portfolio</h2>
       <!-- projects from here. -->
-      <article id="practica_recipee_page_main">
-        <h2>Práctica Recipe Page Main</h2>
+      <article id="practica_recipe_page_main">
+        <h3>Practice Recipe Page Main</h3>
         <p>
-          Proyecto de código abierto en front end, un web site simple de HTML y
-          CSS.
+          Open-source front-end project, a simple website using HTML and CSS.
         </p>
-        <button id="ver_mas_recipe_page_main">Ver más</button>
         <img
-          src="images/imagenes de los proyectos/recipe_page.jpeg"
+          src="images/images_of_the_projects/recipe_page.png"
           alt="image of the project"
+          id="image_recipe_page_project_id"
         />
-        <p>HMTL</p>
-        <p>CSS</p>
+        <div class="icons_recipe_page">
+          <span id="buttons_down_descriptive_recipe_page_html">HMTL</span>
+          <span id="buttons_down_descriptive_recipe_page_css">CSS</span>
+        </div>
+        <div class="buttons_recipe_page">
+          <a
+            href="https://carlos-j-guevara.github.io/Practica-recipe-page-main/"
+            target="_blank"
+            class="button"
+            id="see_website_recipe_page"
+          >
+            <img
+              src="images/icons/world-wide-web 1.svg"
+              alt="icon_web"
+              id="icon_web_button_recipe_page"
+            />
+            See website
+          </a>
+          <a
+            href="https://github.com/Carlos-J-Guevara/Practica-recipe-page-main"
+            target="_blank"
+            class="button"
+            id="see_code_recipe_page"
+          >
+            <img
+              src="images/icons/code 1.svg"
+              alt="icon_code"
+              class="icon_button_recipe_page"
+              id="icon_see_code_button_recipe_page"
+            />
+            See code
+          </a>
+        </div>
       </article>
 
-      <article id="destock_desing_ticket">
-        <h2>Desktop Design Ticket</h2>
+      <article id="desing_ticket">
+        <h3>Design Ticket</h3>
         <p>
-          Proyecto de práctica, de código abierto, para demostrar habilidades en
-          TypeScript, JavaScript, HTML, CSS, manejo de linteres, interfaz
-          responsiva, código modular, programación funcional.
+          Practice project, open-source, designed to demonstrate skills in
+          TypeScript, JavaScript, HTML, CSS, linking management, responsive
+          interface, modular code, and functional programming.
         </p>
-        <button id="ver_mas_destock_desing_ticketl">Ver más</button>
         <img
-          src="images/imagenes de los proyectos/generator_ticket.jpeg"
+          src="images/images_of_the_projects/generador_ticket.png"
           alt="image of the project"
+          id="image_desing_ticket_project_id"
         />
-        <p>HMTL</p>
-        <p>CSS</p>
-        <p>JAVASCRIPT</p>
-        <p>TYPESCRIPT</p>
+        <div class="icons_desing_ticket">
+          <span id="buttons_down_descriptive_desing_ticket_html">HMTL</span>
+          <span id="buttons_down_descriptive_desing_ticket_css">CSS</span>
+          <span id="buttons_down_descriptive_desing_ticket_javascript"
+            >JAVASCRIPT</span
+          >
+          <span id="buttons_down_descriptive_desing_ticket_typescript"
+            >TYPESCRIPT</span
+          >
+        </div>
+        <div class="buttons_desing_ticket">
+          <a
+            href="https://carlos-j-guevara.github.io/conference-ticket-generator-main/"
+            target="_blank"
+            class="button"
+            id="see_website_desing_ticket"
+          >
+            <img
+              src="images/icons/world-wide-web 1.svg"
+              alt="icon_web"
+              id="icon_web_button_desing_ticket"
+            />
+            See website
+          </a>
+          <a
+            href="https://github.com/Carlos-J-Guevara/conference-ticket-generator-main"
+            target="_blank"
+            class="button"
+            id="see_code_desing_ticket"
+          >
+            <img
+              src="images/icons/code 1.svg"
+              alt="icon_code"
+              class="icon_button_desing_ticket"
+              id="icon_see_code_button_desing_ticket"
+            />
+            See code
+          </a>
+        </div>
       </article>
     </section>
 
     <!-- section of certificates -->
-    <section>
-      <h1>Certificados</h1>
+    <section id="certificatesArea" class="certificates_area">
+      <h2>Certificates</h2>
+      <article class="article_certificates">
+        <div class="certificates_images_section1">
+          <!-- certificated of google -->
+          <img src="images/icons/GOOGLE.svg" alt="google image" />
+          <!-- certificated of UA -->
+          <img
+            src="images/icons/UNIVERSIDAD DE LOS ANDES.svg"
+            alt="universidad de los andes image"
+          />
+          <!-- certificated of IBM company Cloud C -->
+          <img src="images/icons/IBM.svg" alt="IBM company image" />
+          <!-- certificated of IBM company html css js -->
+          <img src="images/icons/IBM.svg" alt="IBM company image" />
+          <!-- certificated of Microsoft company -->
+          <img src="images/icons/MICROSOFT.svg" alt="Microsoft company image" />
+          <!-- certificated of IBM company Git and Github -->
+          <img src="images/icons/IBM.svg" alt="IBM company image" />
+        </div>
 
-      <!-- certificated of google -->
-      <img src="images/icons/GOOGLE.png" alt="google image" />
-      <p>
-        Certificado Profesional de Soporte Técnico en Tecnologías de Información
-        <span>Google</span>
-      </p>
+        <div class="certificate_text_section1">
+          <p>
+            Professional Certificate in IT Support
+            <a
+              href="https://www.credly.com/badges/cba2faf7-9531-4df1-9dba-56b5f110f12e/linked_in_profile"
+              target="_blank"
+              >Google</a
+            >
+          </p>
+          <p>
+            Python
+            <a
+              href="https://learn.microsoft.com/es-es/users/carlosjoseangelguevaramicciollo-1002/achievements/fvkeyjax"
+              target="_blank"
+              >Universidad de los Andes - Colombia
+            </a>
+          </p>
+          <p>
+            Introduction to Cloud Computing
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/GKWI70PGIM9W"
+              target="_blank"
+              >IBM</a
+            >
+          </p>
+          <p>
+            Web Development with HTML, CSS, JavaScript
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/RQBC7G7QOEFI"
+              target="_blank"
+              >IBM</a
+            >
+          </p>
+          <p id="title_icon_microsoft_typescript">
+            Introduction a TypeScript
+            <a
+              href="https://learn.microsoft.com/es-es/users/carlosjoseangelguevaramicciollo-1002/achievements/fvkeyjax"
+              target="_blank"
+              >Microsoft</a
+            >
+          </p>
+          <p id="title_icon_IBM_git_github">
+            Getting Started with Git and GitHub
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/0HLQX3173JUK"
+              target="_blank"
+              >IBM</a
+            >
+          </p>
+        </div>
 
-      <!-- certificated of UA -->
-      <img
-        src="images/icons/UNIVERSIDAD DE LOS ANDES.png"
-        alt="universidad de los andes image"
-      />
-      <p>
-        Programación en Python <span>Universidad de los Andes - Colombia </span>
-      </p>
+        <div class="certificates_images_section2">
+          <!-- certificated of The University of Edinburgh -->
+          <img
+            src="images/icons/UNIVERSITY OF EDINBURG.svg"
+            alt="The University of Edinburgh image"
+          />
+          <!-- certificated of Pontificia Universidad Católica de Chile -->
+          <img
+            src="images/icons/PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE.svg"
+            alt="image of University Pontificia Universidad Católica de Chile"
+          />
+          <!-- certificated of EDTEAM company Eslint-->
+          <img src="images/icons/EDTEAM.svg" alt="image of EDTEAM company" />
+          <!-- certificated of EDTEAM company Algoritmos -->
+          <img src="images/icons/EDTEAM.svg" alt="image of EDTEAM company" />
+          <!-- certificated of EDTEAM company Testing-->
+          <img src="images/icons/EDTEAM.svg" alt="image of EDTEAM company" />
+          <!-- certificated of EDTEAM company Gitlab-->
+          <img src="images/icons/EDTEAM.svg" alt="image of EDTEAM company" />
+        </div>
 
-      <!-- certificated of IBM company Cloud C -->
-      <img src="images/icons/IBM.png" alt="IBM company image" />
-      <p>
-        Introduction to Cloud Computing
-        <span>IBM</span>
-      </p>
-
-      <!-- certificated of IBM company Front -->
-      <img src="images/icons/IBM.png" alt="IBM company image" />
-      <p>
-        Introduction to Web Development with HTML, CSS, JavaScript
-        <span>IBM</span>
-      </p>
-
-      <!-- certificated of Microsoft company -->
-      <img src="images/icons/MICROSOFT.png" alt="Microsoft company image" />
-      <p>
-        Introducción a TypeScript
-        <span>Microsoft</span>
-      </p>
-
-      <!-- certificated of IBM company Git and Github -->
-      <img src="images/icons/IBM.png" alt="IBM company image" />
-      <p>
-        Getting Started with Git and GitHub
-        <span>IBM</span>
-      </p>
-
-      <!-- certificated of The University of Edinburgh -->
-      <img
-        src="images/icons/UNIVERSIDAD DE EDINBURGH.png"
-        alt="The University of Edinburgh image"
-      />
-      <p>
-        ¡A Programar! Una introducción a la programación
-        <span>The University of Edinburgh</span>
-      </p>
-
-      <!-- certificated of Pontificia Universidad Católica de Chile -->
-      <img
-        src="images/icons/PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE.png"
-        alt="image of University Pontificia Universidad Católica de Chile"
-      />
-      <p>
-        Programación en Python II: aprendiendo a estructurar datos
-        <span>Pontificia Universidad Católica de Chile</span>
-      </p>
-
-      <!-- certificated of EDTEAM company Eslint-->
-      <img src="images/icons/EDTEAM.png" alt="image of EDTEAM company" />
-      <p>
-        Código JavaScript estandarizado con ESlint y Prettier
-        <span>EDteam</span>
-      </p>
-
-      <!-- certificated of EDTEAM company Algoritmos -->
-      <img src="images/icons/EDTEAM.png" alt="image of EDTEAM company" />
-      <p>
-        Algoritmos en la Programación
-        <span>EDteam</span>
-      </p>
-
-      <!-- certificated of EDTEAM company Testing-->
-      <img src="images/icons/EDTEAM.png" alt="image of EDTEAM company" />
-      <p>
-        Testing con JavaScript
-        <span>EDteam</span>
-      </p>
-
-      <!-- certificated of EDTEAM company Gitlab-->
-      <img src="images/icons/EDTEAM.png" alt="image of EDTEAM company" />
-      <p>
-        CI/CD con Gitlab
-        <span>EDteam</span>
-      </p>
+        <div class="certificate_text_section2">
+          <p>
+            Programming
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/JK7TA2Q5469J"
+              target="_blank"
+              >The University of Edinburgh</a
+            >
+          </p>
+          <p>
+            Programming II
+            <a
+              href="https://www.coursera.org/account/accomplishments/verify/RYMT33DSSLLV"
+              target="_blank"
+              >Universidad Católica de Chile</a
+            >
+          </p>
+          <p>
+            Standardized JS ESLint and Prettier
+            <a
+              href="https://edteam-media.s3.amazonaws.com/certificates/original/d53957ec-c3f9-4d58-975e-38219ce293b0.png"
+              target="_blank"
+              >EDteam</a
+            >
+          </p>
+          <p>
+            Algorithms in Programming
+            <a
+              href="https://edteam-media.s3.amazonaws.com/certificates/original/6f8a863f-b5af-4116-bdd1-07f6d5766c99.png"
+              target="_blank"
+              >EDteam</a
+            >
+          </p>
+          <p id="titulo_icon_edteam_testing_javascript">
+            Testing with JavaScript
+            <a
+              href="https://edteam-media.s3.amazonaws.com/certificates/original/2b47febf-8808-4063-9a0d-ea9ea572ef26.png"
+              target="_blank"
+              >EDteam</a
+            >
+          </p>
+          <p id="title_icon_edteam_gitlab_ci_cd">
+            CI/CD with Gitlab
+            <a
+              href="https://edteam-media.s3.amazonaws.com/certificates/original/364a9617-bd25-462f-a8fb-0c8d0a73312f.png"
+              target="_blank"
+              >EDteam</a
+            >
+          </p>
+        </div>
+      </article>
     </section>
 
     <!-- section of contact -->
-    <section class="container_contact">
-      <h1>Contacto</h1>
-      <form class="contact_form" action="#" method="POST">
-        <!-- label of name -->
-        <div class="form_group">
-          <label for="nombre">Nombre:</label>
-          <input
-            type="text"
-            id="nombre_area_contacto"
-            name="nombre_area_contacto"
-            required
-            placeholder="Nombre"
-          />
-        </div>
+    <section class="container_contact" id="contactoArea">
+      <div class="contact_details">
+        <h1>Contact</h1>
+        <form
+          class="contact_form"
+          action="https://formsubmit.co/micciollo911@gmail.com"
+          method="POST"
+        >
+          <!-- Name: allows letters (including accents), spaces, dots, hyphens, and apostrophes -->
+          <div class="form_group">
+            <input
+              type="text"
+              id="nombre_area_contacto"
+              name="Name"
+              required
+              placeholder="Name"
+              pattern="^[A-Za-zÀ-ÿ\s\.\-']{2,100}$"
+            />
+          </div>
 
-        <!-- label of phone number -->
-        <div class="form_group">
-          <label for="phone_number">Número Telefónico</label>
-          <input
-            type="number"
-            id="phone_number_area_contacto"
-            name="phone_number_area_contacto"
-            required
-            placeholder="Número Telefónico"
-          />
-        </div>
+          <!-- Phone Number: allows an optional +, digits, spaces, hyphens, and optional parentheses -->
+          <div class="form_group">
+            <input
+              type="tel"
+              id="phone_number_area_contacto"
+              name="Phone_Number"
+              required
+              placeholder="Phone Number"
+              pattern="^(\+\d{1,3})?\s*(\(\d{1,4}\))?\s*[\d\s-]{7,}$"
+            />
+          </div>
 
-        <!-- label of email -->
-        <div class="form_group">
-          <label for="email">Dirección de correo</label>
-          <input
-            type="email"
-            id="email_area_contacto"
-            name="email_area_contacto"
-            required
-            placeholder="Dirección de correo"
-          />
-        </div>
+          <!-- Email: browser validates the email format -->
+          <div class="form_group">
+            <input
+              type="email"
+              id="email_area_contacto"
+              name="Email"
+              required
+              placeholder="Email"
+              pattern="^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9.-]{1,253}\.[A-Za-z]{2,}$"
+            />
+          </div>
 
-        <!-- label of Tema -->
-        <div class="form_group">
-          <label for="asunto">Tema</label>
-          <input
-            type="text"
-            id="tema_area_contacto"
-            name="tema_area_contacto"
-            required
-            placeholder="Tema"
-          />
-        </div>
+          <!-- Category: allows letters (including accents), spaces, dots, hyphens, and apostrophes -->
+          <div class="form_group">
+            <input
+              type="text"
+              id="tema_area_contacto"
+              name="Category"
+              required
+              placeholder="Category"
+              pattern="^[A-Za-zÀ-ÿ0-9\s\.\-'\+]{2,100}$"
+            />
+          </div>
 
-        <!-- label of message -->
-        <div class="form_group">
-          <label for="mensaje">Mensaje</label>
-          <textarea
-            id="mensaje_area_contacto"
-            name="mensaje_area_contacto"
-            required
-            placeholder="Mensaje"
-            rows="5"
-          ></textarea>
-        </div>
+          <!-- Message: disallows the characters < and > to prevent HTML injection -->
+          <div class="form_group">
+            <textarea
+              id="mensaje_area_contacto"
+              name="Menssage"
+              required
+              placeholder="Menssage"
+              rows="5"
+              pattern="^(?!.*[<>]).{1,1000}$"
+            ></textarea>
+          </div>
 
-        <!-- button to send the message -->
-        <button type="submit" class="submit-btn">Enviar</button>
-      </form>
+          <!-- Honeypot field to filter bots -->
+          <input type="text" name="_honey" style="display: none" />
+
+          <!-- Submit button -->
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+      </div>
+      <a
+        href="https://media.licdn.com/dms/image/v2/D4E03AQFifr-FlYfp-Q/profile-displayphoto-shrink_800_800/B4EZWcFp6WGgAc-/0/1742080483665?e=1747872000&v=beta&t=kBAXr-0I7upN4lTv7wmFlCI6sxkDLT86gHGoPg-j46k"
+        target="_blank"
+      >
+        <img
+          src="images/image_personal/Carlos_photo_personal.png"
+          alt="personal_image"
+        />
+      </a>
     </section>
 
     <!-- footer -->
     <footer class="container_footer">
-      <img src="images/emblema_Carlos.png" alt="Emblema Carlos" />
-      <p>Carlos Guevara</p>
-      <p>Desarrollador Front-End</p>
+      <!-- Emblema y descripcion personal -->
+      <div class="emblema_y_description">
+        <img src="images/emblem_Carlos.svg" alt="Emblem Carlos" />
+        <h3>Carlos Guevara</h3>
+        <p>Front-end Developer</p>
+      </div>
 
-      <nav class="menu_navegation">
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobremi">Sobre Mí</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+      <!-- description of rights -->
+      <p id="description_rights">All rights reserved 2025</p>
+      <hr id="hr_footer" />
+      <!-- menu footer -->
+      <div class="menu_navegation_footer_div">
+        <!-- menu footer -->
+        <nav class="menu_navegation_footer" id="menuFooter">
+          <ul id="ul_menu_footer">
+            <li><a href="#headerArea">HOME</a></li>
+            <li><a href="#aboutmeArea">ABOUT ME</a></li>
+            <li><a href="#technologiesArea">SKILLS</a></li>
+            <li><a href="#portfolioArea">PORTFOLIO</a></li>
+            <li><a href="#contactoArea">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
 
-      <div class="social_media">
-        <a
-          href="https://www.linkedin.com/in/carlos-jose-angel-guevara-micciollo-a0925616b/"
-          ><img src="images/icons/LINKEDIN.png" alt="linkedin image"
+      <!-- links to social networks -->
+      <div class="social_networks">
+        <a href="https://www.linkedin.com/in/carlos-j-guevara/" target="_blank"
+          ><img src="images/icons/LINKEDIN.svg" alt="linkedin image"
         /></a>
-        <a href="https://github.com/Carlos-J-Guevara"
-          ><img src="images/icons/GITHUB.png" alt="Github image"
+        <a href="https://github.com/Carlos-J-Guevara" target="_blank"
+          ><img src="images/icons/GITHUB.svg" alt="Github image"
         /></a>
       </div>
     </footer>

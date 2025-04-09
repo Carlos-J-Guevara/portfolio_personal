@@ -7,7 +7,9 @@ on:
       - 'feature/**'
 
 permissions:
-  contents: read
+  contents: write
+  deployments: write
+  statuses: write
   pages: write
   id-token: write
 
@@ -21,6 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
           
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -28,16 +31,29 @@ jobs:
       - name: Build project
         run: npm run build --legacy-peer-deps
 
+      - name: Prepare distribution files
+        run: |
+          mkdir -p dist
+          # Handle files with spaces using null-terminated input
+          git ls-files -z | while IFS= read -r -d '' file; do
+            mkdir -p "dist/$(dirname "$file")"
+            cp -p "$file" "dist/$file"
+          done
+          echo "Files copied to dist (respecting .gitignore):"
+          ls -la dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist
           name: github-pages
 
   deploy-feature:
     needs: build
     if: startsWith(github.ref, 'refs/heads/feature/')
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages-staging
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
@@ -45,28 +61,31 @@ jobs:
           name: github-pages
           path: ./dist
 
-      - name: Debug Environment
+      - name: List distribution contents
+        run: ls -la ./dist
+
+      - name: Extract artifact
         run: |
-          echo "Checking Netlify Configuration..."
-          echo "Auth Token exists: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}"
-          echo "Site ID exists: ${{ secrets.NETLIFY_SITE_ID != '' }}"
+          tar -xvf ./dist/artifact.tar -C ./dist
+          ls -la ./dist
+
+      - name: Verify deployment settings
+        run: |
+          echo "Verifying Netlify Configuration..."
           echo "Current branch: ${{ github.ref }}"
           ls -la ./dist
 
-      - name: Deploy to Netlify
+      - name: Deploy to Netlify (Staging)
         uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './dist'
+          deploy-message: "Deploy from GitHub Actions (Feature Branch)"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          alias: preview-${{ github.sha }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          publish-dir: './dist'
-          production-branch: feature
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: true
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-          alias: preview-${{ github.sha }}
 
   deploy-production:
     needs: build
@@ -76,6 +95,26 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./dist
+
+      - name: Extract artifact
+        run: |
+          tar -xvf ./dist/artifact.tar -C ./dist
+          ls -la ./dist
+
+      - name: Deploy to Netlify (Production)
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './dist'
+          deploy-message: "Deploy from GitHub Actions (Production)"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
