@@ -40,6 +40,7 @@
         <a
           href="https://media.licdn.com/dms/image/v2/D4E03AQFifr-FlYfp-Q/profile-displayphoto-shrink_800_800/B4EZWcFp6WGgAc-/0/1742080483665?e=1747872000&v=beta&t=kBAXr-0I7upN4lTv7wmFlCI6sxkDLT86gHGoPg-j46k"
           target="_blank"
+          id="link_photo_owner"
         >
           <img
             src="images/Carlos_photo.png"
@@ -51,7 +52,7 @@
         <h3 id="descriptionOwnerH3">Front-end Developer</h3>
         <div class="social_media">
           <a
-            href="https://www.linkedin.com/in/carlos-jose-angel-g-a0925616b/"
+            href="https://www.linkedin.com/in/carlos-j-guevara/"
             target="_blank"
             ><img
               src="images/icons/LINKEDIN.svg"
@@ -72,28 +73,30 @@
     <section class="container_aboutme" id="aboutmeArea">
       <h1>About me</h1>
       <img
-        src="images/wallpapers/mobile/background_aboutme.png"
+        src="images/wallpapers/desktop/photo_aboutme.png"
         alt="descriptive_image"
       />
-      <p>
-        Passionate about technology and programming, with experience in web
-        development, I have worked with JavaScript, TypeScript, HTML, CSS, and
-        Python. I have trained in key tools and methodologies such as ESLint,
-        Prettier, Git, GitHub, and Cloud Computing, allowing me to write clean,
-        scalable, and efficient code.
-      </p>
+      <div class="description_aboutme_div">
+        <p>
+          Passionate about technology and programming, with experience in web
+          development, I have worked with JavaScript, TypeScript, HTML, CSS, and
+          Python. I have trained in key tools and methodologies such as ESLint,
+          Prettier, Git, GitHub, and Cloud Computing, allowing me to write
+          clean, scalable, and efficient code.
+        </p>
 
-      <p>
-        I earned a professional certificate in IT Support from Google,
-        strengthening my ability to solve problems and work in collaborative
-        environments.
-      </p>
+        <p>
+          I earned a professional certificate in IT Support from Google,
+          strengthening my ability to solve problems and work in collaborative
+          environments.
+        </p>
 
-      <p>
-        Currently, I am focused on improving my front-end development skills and
-        creating interactive and optimized applications. I am always looking for
-        new challenges and opportunities to keep learning.
-      </p>
+        <p>
+          Currently, I am focused on improving my front-end development skills
+          and creating interactive and optimized applications. I am always
+          looking for new challenges and opportunities to keep learning.
+        </p>
+      </div>
     </section>
 
     <!-- section tech -->
@@ -320,10 +323,11 @@
         <img
           src="images/images_of_the_projects/recipe_page.png"
           alt="image of the project"
+          id="image_recipe_page_project_id"
         />
         <div class="icons_recipe_page">
-          <span>HMTL</span>
-          <span>CSS</span>
+          <span id="buttons_down_descriptive_recipe_page_html">HMTL</span>
+          <span id="buttons_down_descriptive_recipe_page_css">CSS</span>
         </div>
         <div class="buttons_recipe_page">
           <a
@@ -349,6 +353,7 @@
               src="images/icons/code 1.svg"
               alt="icon_code"
               class="icon_button_recipe_page"
+              id="icon_see_code_button_recipe_page"
             />
             See code
           </a>
@@ -365,12 +370,17 @@
         <img
           src="images/images_of_the_projects/generador_ticket.png"
           alt="image of the project"
+          id="image_desing_ticket_project_id"
         />
         <div class="icons_desing_ticket">
-          <span>HMTL</span>
-          <span>CSS</span>
-          <span>JAVASCRIPT</span>
-          <span>TYPESCRIPT</span>
+          <span id="buttons_down_descriptive_desing_ticket_html">HMTL</span>
+          <span id="buttons_down_descriptive_desing_ticket_css">CSS</span>
+          <span id="buttons_down_descriptive_desing_ticket_javascript"
+            >JAVASCRIPT</span
+          >
+          <span id="buttons_down_descriptive_desing_ticket_typescript"
+            >TYPESCRIPT</span
+          >
         </div>
         <div class="buttons_desing_ticket">
           <a
@@ -396,6 +406,7 @@
               src="images/icons/code 1.svg"
               alt="icon_code"
               class="icon_button_desing_ticket"
+              id="icon_see_code_button_desing_ticket"
             />
             See code
           </a>
@@ -559,7 +570,7 @@
           action="https://formsubmit.co/micciollo911@gmail.com"
           method="POST"
         >
-          <!-- label of name -->
+          <!-- Name: allows letters (including accents), spaces, dots, hyphens, and apostrophes -->
           <div class="form_group">
             <input
               type="text"
@@ -567,10 +578,11 @@
               name="Name"
               required
               placeholder="Name"
+              pattern="^[A-Za-zÀ-ÿ\s\.\-']{2,100}$"
             />
           </div>
 
-          <!-- label of phone number -->
+          <!-- Phone Number: allows an optional +, digits, spaces, hyphens, and optional parentheses -->
           <div class="form_group">
             <input
               type="tel"
@@ -582,7 +594,7 @@
             />
           </div>
 
-          <!-- label of email -->
+          <!-- Email: browser validates the email format -->
           <div class="form_group">
             <input
               type="email"
@@ -590,10 +602,11 @@
               name="Email"
               required
               placeholder="Email"
+              pattern="^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9.-]{1,253}\.[A-Za-z]{2,}$"
             />
           </div>
 
-          <!-- label of Topic -->
+          <!-- Category: allows letters (including accents), spaces, dots, hyphens, and apostrophes -->
           <div class="form_group">
             <input
               type="text"
@@ -601,10 +614,11 @@
               name="Category"
               required
               placeholder="Category"
+              pattern="^[A-Za-zÀ-ÿ0-9\s\.\-'\+]{2,100}$"
             />
           </div>
 
-          <!-- label of message -->
+          <!-- Message: disallows the characters < and > to prevent HTML injection -->
           <div class="form_group">
             <textarea
               id="mensaje_area_contacto"
@@ -612,9 +626,14 @@
               required
               placeholder="Menssage"
               rows="5"
+              pattern="^(?!.*[<>]).{1,1000}$"
             ></textarea>
           </div>
-          <!-- button to send the message -->
+
+          <!-- Honeypot field to filter bots -->
+          <input type="text" name="_honey" style="display: none" />
+
+          <!-- Submit button -->
           <button type="submit" class="submit-btn">Send</button>
         </form>
       </div>
@@ -657,9 +676,7 @@
 
       <!-- links to social networks -->
       <div class="social_networks">
-        <a
-          href="https://www.linkedin.com/in/carlos-jose-angel-guevara-micciollo-a0925616b/"
-          target="_blank"
+        <a href="https://www.linkedin.com/in/carlos-j-guevara/" target="_blank"
           ><img src="images/icons/LINKEDIN.svg" alt="linkedin image"
         /></a>
         <a href="https://github.com/Carlos-J-Guevara" target="_blank"
