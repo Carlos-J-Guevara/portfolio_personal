@@ -1,11 +1,11 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "extends": ["stylelint-config-standard"],
   "rules": {
-    "comment-empty-line-before": "always",
-    "comment-whitespace-inside": "always",
-    "length-zero-no-unit": true,
-    "font-family-no-missing-generic-family-keyword": true,
     "no-descending-specificity": null,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "value-no-vendor-prefix": null,
+    "property-no-vendor-prefix": null,
+    "no-duplicate-selectors": null
   }
 }
