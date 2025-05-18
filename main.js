@@ -10,15 +10,19 @@ const initMobileMenu = () => {
         console.warn('Menu elements not found. Please verify that the IDs are correct.');
         return;
     }
-    // Check if the window width is less than or equal to 600 pixels (mobile devices)
     if (window.innerWidth <= 600) {
-        // When the menu icon is clicked, display the navigation menu with flex layout
-        menuIcon.addEventListener('click', () => {
+        menuIcon.addEventListener('click', (event) => {
+            event.stopPropagation();
             menuNavigation.style.display = 'flex';
         });
-        // When the navigation menu is clicked, hide it
         menuNavigation.addEventListener('click', () => {
             menuNavigation.style.display = 'none';
+        });
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (!menuNavigation.contains(target) && !menuIcon.contains(target)) {
+                menuNavigation.style.display = 'none';
+            }
         });
     }
 };
