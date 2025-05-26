@@ -221,7 +221,7 @@
     background-color: #021c35;
     position: relative;
     bottom: 18vw;
-    height: 115vw;
+    height: 130vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,7 +254,7 @@
   .global_tech {
     background-color: #011425;
     width: 75%;
-    height: 47vw;
+    height: 61vw;
     border-radius: 4vw;
     display: flex;
     flex-direction: row;
@@ -270,7 +270,6 @@
   #icon_html {
     margin-top: 4vw;
     position: relative;
-    top: ;
   }
 
   #icon_css {
@@ -282,6 +281,12 @@
     margin-bottom: 4vw;
     position: relative;
     bottom: 14.2vw;
+  }
+
+  #icon_react {
+    margin-bottom: 4vw;
+    position: relative;
+    bottom: 26vw;
   }
 
   /* section 1 p global styles */
@@ -307,6 +312,12 @@
     position: relative;
     left: 18vw;
     bottom: 29vw;
+  }
+
+  #titulo_icon_react_tech {
+    position: relative;
+    left: 18vw;
+    bottom: 41vw;
   }
 
   /* section 2 global styles */
@@ -365,7 +376,7 @@
     background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
     position: relative;
     bottom: 25.5vw;
-    height: 100vw;
+    height: 110vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -413,7 +424,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 4vw;
+    top: 9.5vw;
   }
 
   .images_section1 img {
@@ -462,7 +473,7 @@
     padding-top: 2.2vw;
     padding-bottom: 2.2vw;
     position: relative;
-    top: 4vw;
+    top: 9vw;
   }
 
   .text_section2 p {
@@ -473,10 +484,10 @@
   }
 
   .text_section3 p {
-    padding-top: 2.2vw;
+    padding-top: 2.3vw;
     padding-bottom: 2.2vw;
     position: relative;
-    top: 4vw;
+    top: 3.2vw;
   }
 
   /* unique positioning because this line of p is different */
@@ -485,10 +496,15 @@
     bottom: 0;
   }
 
-  /* unique styles related to illustrator p because its big. */
+  /* unique styles related to titles of each icon */
   #titulo_icon_illustrator {
     font-size: 2.5vw;
-    transform: translate(0, -0.8vw);
+    transform: translate(0, 0);
+  }
+
+  #titulo_icon_photoshop {
+    font-size: 2.5vw;
+    transform: translate(0, 0);
   }
 
   /* soft skills  */
@@ -803,7 +819,7 @@
     background-color: var(--color-gris-fondo);
     position: relative;
     bottom: 40vw;
-    height: 170vw;
+    height: 190vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -821,7 +837,7 @@
     margin: 0;
     padding: 0;
     position: relative;
-    bottom: 35vw;
+    bottom: 45vw;
     right: 10vw;
     margin-left: 4vw;
     width: 60%;
@@ -854,7 +870,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 14vw;
+    top: 11.5vw;
   }
 
   .certificates_images_section1 img {
@@ -873,7 +889,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 14vw;
+    top: 4vw;
   }
 
   .certificates_images_section2 img {
@@ -894,7 +910,7 @@
     margin-right: 2vw;
     width: 20vw;
     position: relative;
-    top: 9vw;
+    top: 4.5vw;
   }
 
   /* styles diferent for links section 1 */
@@ -912,7 +928,7 @@
     width: 20vw;
     bottom: 0;
     position: relative;
-    top: 9vw;
+    top: -1vw;
   }
 
   /* styles diferent for links section 2 */
@@ -922,39 +938,49 @@
   }
 
   /* styles of ceritificates to give support, to those wich move strangely */
+  #title_icon_ibm_html_css_js {
+    position: relative;
+    top: 5vw;
+  }
+
   #title_icon_microsoft_typescript {
     position: relative;
-    top: 11vw;
+    top: 6vw;
   }
 
   #title_icon_IBM_git_github {
     position: relative;
-    top: 13vw;
+    top: 8vw;
   }
 
   #title_icon_platzi_react_js {
     position: relative;
-    top: 16vw;
+    top: 11.5vw;
+  }
+
+  #title_icon_platzi_photoshop {
+    position: relative;
+    top: 20.5vw;
   }
 
   #title_icon_platzi_figma {
     position: relative;
-    top: 21vw;
+    top: 15.5vw;
   }
 
   #title_icon_edteam_gitlab_ci_cd {
     position: relative;
-    top: 12vw;
+    top: 1.5vw;
   }
 
   #title_icon_platzi_tailwind {
     position: relative;
-    top: 15vw;
+    top: 5.5vw;
   }
 
   #title_icon_platzi_illustrator {
     position: relative;
-    top: 20vw;
+    top: 10.5vw;
   }
 
   /* <!-- section of contact --> */
@@ -1371,7 +1397,7 @@
     background-color: #021c35;
     position: relative;
     bottom: 18vw;
-    height: 120vw;
+    height: 130vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1405,7 +1431,7 @@
   .global_tech {
     background-color: #011425;
     width: 90vw;
-    height: 55vw;
+    height: 70vw;
     border-radius: 4vw;
     display: flex;
     flex-direction: row;
@@ -1437,6 +1463,12 @@
     bottom: 7vw;
   }
 
+  #icon_react {
+    margin-bottom: 4vw;
+    position: relative;
+    bottom: 15vw;
+  }
+
   /* section 1 p global styles */
   .section_tech1 p {
     color: var(--color-azul-letra);
@@ -1460,6 +1492,12 @@
     position: relative;
     left: 20vw;
     bottom: 22vw;
+  }
+
+  #titulo_icon_react_tech {
+    position: relative;
+    left: 20vw;
+    bottom: 30vw;
   }
 
   /* section 2 global styles */
@@ -1518,7 +1556,7 @@
     background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
     position: relative;
     bottom: 25.5vw;
-    height: 100vw;
+    height: 110vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1534,8 +1572,8 @@
     margin: 0;
     padding: 0;
     position: relative;
-    bottom: 5vw;
-    right: 4.5vw;
+    bottom: 11vw;
+    right: 6vw;
     width: 80%;
     margin-top: 12vw;
   }
@@ -1556,7 +1594,7 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    bottom: 6vw;
+    bottom: 10vw;
   }
 
   /* image position */
@@ -1566,6 +1604,8 @@
     justify-content: center;
     align-items: center;
     margin: 2vw;
+    position: relative;
+    top: 5.8vw;
   }
 
   .images_section1 img {
@@ -1612,6 +1652,8 @@
     padding-top: 3vw;
     padding-bottom: 3vw;
     margin-right: 5vw;
+    position: relative;
+    top: 6.5vw;
   }
 
   .text_section2 p {
@@ -1632,6 +1674,17 @@
   .text_section3 p {
     position: relative;
     bottom: 5vw;
+  }
+
+  /* unique styles related to titles of each icon */
+  #titulo_icon_tailwind {
+    font-size: 2.5vw;
+    transform: translate(0, -0.8vw);
+  }
+
+  #titulo_icon_photoshop {
+    font-size: 2.5vw;
+    transform: translate(0, -1.4vw);
   }
 
   /* soft skills  */
@@ -1954,7 +2007,7 @@
     background-color: var(--color-gris-fondo);
     position: relative;
     bottom: 40vw;
-    height: 170vw;
+    height: 185vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1972,7 +2025,7 @@
     margin: 0;
     padding: 0;
     position: relative;
-    bottom: 35vw;
+    bottom: 45vw;
     right: 20vw;
     width: 35%;
   }
@@ -2020,6 +2073,8 @@
     justify-content: center;
     align-items: center;
     margin: 2vw;
+    position: relative;
+    bottom: 7.5vw;
   }
 
   .certificates_images_section2 img {
@@ -2040,7 +2095,7 @@
     margin-right: 2vw;
     width: 20vw;
     position: relative;
-    bottom: 4.5vw;
+    bottom: 6.5vw;
   }
 
   /* styles diferent for links section 1 */
@@ -2057,7 +2112,7 @@
     margin-right: 2vw;
     width: 20vw;
     position: relative;
-    bottom: 4.5vw;
+    bottom: 11.8vw;
   }
 
   /* styles diferent for links section 2 */
@@ -2069,37 +2124,42 @@
   /* styles of ceritificates to give support, to those wich move strangely */
   #title_icon_microsoft_typescript {
     position: relative;
-    bottom: 3.5vw;
+    bottom: 5vw;
   }
 
   #title_icon_IBM_git_github {
     position: relative;
-    bottom: 1vw;
+    bottom: 2.5vw;
   }
 
   #title_icon_platzi_react_js {
     position: relative;
-    top: 2vw;
+    top: 0.5vw;
   }
 
   #title_icon_platzi_figma {
     position: relative;
-    top: 7vw;
+    top: 5vw;
+  }
+
+  #title_icon_platzi_photoshop {
+    position: relative;
+    top: 9.5vw;
   }
 
   #title_icon_edteam_gitlab_ci_cd {
     position: relative;
-    top: -2vw;
+    top: -8.5vw;
   }
 
   #title_icon_platzi_tailwind {
     position: relative;
-    top: 1.5vw;
+    top: -5.5vw;
   }
 
   #title_icon_platzi_illustrator {
     position: relative;
-    top: 6vw;
+    top: -1vw;
   }
 
   /* <!-- section of contact --> */
@@ -2563,7 +2623,7 @@
     background-color: #021c35;
     position: relative;
     bottom: 18vw;
-    height: 58vw;
+    height: 67vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2606,7 +2666,7 @@
   .global_tech {
     background-color: #011425;
     width: 65vw;
-    height: 27.5vw;
+    height: 36vw;
     border-radius: 1vw;
     display: flex;
     flex-direction: row;
@@ -2635,6 +2695,12 @@
     bottom: 3vw;
   }
 
+  #icon_react {
+    margin-bottom: 4vw;
+    position: relative;
+    bottom: 6vw;
+  }
+
   /* section 1 p global styles */
   .section_tech1 p {
     color: var(--color-azul-letra);
@@ -2658,6 +2724,12 @@
     position: relative;
     left: 12vw;
     bottom: 9vw;
+  }
+
+  #titulo_icon_react_tech {
+    position: relative;
+    left: 12vw;
+    bottom: 15.7vw;
   }
 
   /* section 2 global styles */
@@ -2716,7 +2788,7 @@
     background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
     position: relative;
     bottom: 25.5vw;
-    height: 60vw;
+    height: 67vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2734,7 +2806,6 @@
     border-radius: 1vw;
     margin: 0;
     padding: 0;
-    bottom: 5vw;
     margin-left: 0;
     width: 67%;
     margin-top: 12vw;
@@ -2743,7 +2814,8 @@
     align-items: center;
     flex-direction: row;
     position: relative;
-    right: 10.2vw;
+    right: 11.1vw;
+    bottom: 6vw;
   }
 
   /* global settings related to img and text related to each image */
@@ -2772,6 +2844,7 @@
     justify-content: center;
     align-items: center;
     margin: 2vw;
+    position: relative;
   }
 
   .images_section1 img {
@@ -2785,6 +2858,8 @@
     justify-content: center;
     align-items: center;
     margin: 2vw;
+    position: relative;
+    bottom: 3.7vw;
   }
 
   .images_section2 img {
@@ -2799,7 +2874,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 3vw;
+    bottom: 0.5vw;
   }
 
   .images_section3 img {
@@ -2815,23 +2890,27 @@
 
   /* text position next to each section of image  */
   .text_section1 p {
-    padding-top: 2vw;
-    padding-bottom: 2vw;
-    margin-right: 15vw;
-  }
-
-  .text_section2 p {
-    padding-top: 2vw;
-    padding-bottom: 2vw;
-    margin-right: 15vw;
-  }
-
-  .text_section3 p {
-    padding-top: 2vw;
+    padding-top: 2.2vw;
     padding-bottom: 2vw;
     margin-right: 15vw;
     position: relative;
-    top: 0;
+    bottom: 0;
+  }
+
+  .text_section2 p {
+    padding-top: 2.2vw;
+    padding-bottom: 2vw;
+    margin-right: 15vw;
+    position: relative;
+    bottom: 3.7vw;
+  }
+
+  .text_section3 p {
+    padding-top: 2.2vw;
+    padding-bottom: 2vw;
+    margin-right: 15vw;
+    position: relative;
+    top: -3.7vw;
   }
 
   /* unique positioning because this line of p is different */
@@ -3285,7 +3364,7 @@
     background-color: var(--color-gris-fondo);
     position: relative;
     bottom: 128vw;
-    height: 85vw;
+    height: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -3304,7 +3383,7 @@
     width: 26%;
     position: relative;
     right: 32vw;
-    bottom: 8vw;
+    bottom: 11vw;
     margin-top: 13vw;
   }
 
@@ -3315,7 +3394,7 @@
 
   .article_certificates {
     height: 60vw;
-    width: 80vw;
+    width: 85vw;
     color: var(--color-letra-titulos);
     font-size: 3.1vw;
     border-radius: 4vw;
@@ -3342,7 +3421,7 @@
     margin-left: 2vw;
     margin-right: 2vw;
     position: relative;
-    bottom: 15vw;
+    bottom: 11.7vw;
     right: 4vw;
   }
 
@@ -3373,7 +3452,7 @@
     margin-right: 2vw;
     width: 25vw;
     position: relative;
-    bottom: 15vw;
+    bottom: 11.4vw;
     right: 6vw;
     text-align: start;
     font-weight: 200;
@@ -3406,21 +3485,34 @@
   }
 
   /* styles of ceritificates to give support, to those wich move strangely */
+
+  /* section 1  */
   #title_icon_microsoft_typescript {
     position: relative;
-    bottom: 15.5vw;
+    bottom: 11.9vw;
   }
 
   #title_icon_IBM_git_github {
     position: relative;
-    bottom: 15.5vw;
+    bottom: 11.9vw;
   }
 
-  #title_icon_edteam_gitlab_ci_cd {
+  #title_icon_platzi_react_js {
     position: relative;
-    bottom: 10.5vw;
+    bottom: 12.5vw;
   }
 
+  #title_icon_platzi_figma {
+    position: relative;
+    bottom: 12.5vw;
+  }
+
+  #title_icon_platzi_photoshop {
+    position: relative;
+    bottom: 12.5vw;
+  }
+
+  /* section 2 */
   #titulo_icon_edteam_testing_javascript {
     position: relative;
     bottom: 15.5vw;
@@ -3429,6 +3521,16 @@
   #title_icon_edteam_gitlab_ci_cd {
     position: relative;
     bottom: 15.5vw;
+  }
+
+  #title_icon_platzi_tailwind {
+    position: relative;
+    bottom: 16vw;
+  }
+
+  #title_icon_platzi_illustrator {
+    position: relative;
+    bottom: 16vw;
   }
 
   /* <!-- section of contact --> */
