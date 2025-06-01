@@ -7,14 +7,14 @@
   --color-negro-fondo: #000;
   --color-azul-bordes: #3581d3;
   --color-letra-titulos: white;
-  --tamaño-letra-titulos: 9vw;
-  --tamaño-letra-parafos: 3vw;
+  --tamano-letra-titulos: 9vw;
+  --tamano-letra-parafos: 3vw;
   --border-radius-titulos: 3vw;
 }
 
 /* as sizes are diferent in each view by other part will be those ones.  */
 :root {
-  --tamaño-letra-titulos-tablet: 7vw;
+  --tamano-letra-titulos-tablet: 7vw;
 }
 
 /* Mobile Layout */
@@ -124,7 +124,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(images/wallpapers/mobile/background_owner_mobile.jpg);
+    background-image: url('images/wallpapers/mobile/background_owner_mobile.jpg');
   }
 
   #content_of_owner {
@@ -230,7 +230,7 @@
 
   .container_tech h1 {
     color: var(--color-letra-titulos);
-    font-size: var(--tamaño-letra-titulos);
+    font-size: var(--tamano-letra-titulos);
     border: 1.2vw solid var(--color-azul-bordes);
     width: 27%;
     display: flex;
@@ -373,7 +373,7 @@
 
   /* tools frameworks and libraries  */
   .container_tools_libraries_frameworks {
-    background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
+    background-image: url('images/wallpapers/mobile/background_tools_libraries.jpg');
     position: relative;
     bottom: 25.5vw;
     height: 110vw;
@@ -392,6 +392,7 @@
     padding: 0;
     position: relative;
     bottom: 5vw;
+    right: 2.3vw;
     margin-left: 1vw;
     width: 80%;
     font-size: 5vw;
@@ -439,7 +440,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 4vw;
+    top: 9.5vw;
   }
 
   .images_section2 img {
@@ -480,14 +481,14 @@
     padding-top: 2.2vw;
     padding-bottom: 2.2vw;
     position: relative;
-    top: 4vw;
+    top: 9vw;
   }
 
   .text_section3 p {
     padding-top: 2.3vw;
     padding-bottom: 2.2vw;
     position: relative;
-    top: 3.2vw;
+    top: 3.3vw;
   }
 
   /* unique positioning because this line of p is different */
@@ -505,6 +506,10 @@
   #titulo_icon_photoshop {
     font-size: 2.5vw;
     transform: translate(0, 0);
+  }
+
+  #titulo_icon_wordpress {
+    font-size: 2.5vw;
   }
 
   /* soft skills  */
@@ -573,7 +578,7 @@
     align-items: start;
     position: relative;
     bottom: 0;
-    lef: 0;
+    left: 0;
   }
 
   /* especify rules to each li  list 2 */
@@ -587,7 +592,7 @@
 
   /* portfolio  */
   .container_portfolio {
-    background-image: url(images/wallpapers/desktop/background_portfolio.webp);
+    background-image: url('images/wallpapers/desktop/background_portfolio.webp');
     position: relative;
     bottom: 40vw;
     height: 250vw;
@@ -601,7 +606,7 @@
 
   .container_portfolio h2 {
     color: var(--color-letra-titulos);
-    font-size: var(--tamaño-letra-titulos);
+    font-size: var(--tamano-letra-titulos);
     border: 1.2vw solid var(--color-azul-bordes);
     border-radius: 3vw;
     display: flex;
@@ -828,7 +833,7 @@
 
   .certificates_area h2 {
     color: var(--color-letra-titulos);
-    font-size: var(--tamaño-letra-titulos);
+    font-size: var(--tamano-letra-titulos);
     border: 1.2vw solid var(--color-azul-bordes);
     border-radius: 3vw;
     display: flex;
@@ -985,7 +990,7 @@
 
   /* <!-- section of contact --> */
   .container_contact {
-    background-image: url(images/wallpapers/mobile/backgroud_contact_mobile.jpg);
+    background-image: url('images/wallpapers/mobile/backgroud_contact_mobile.jpg');
     height: 210vw;
     width: 100%;
     position: relative;
@@ -1295,7 +1300,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(images/wallpapers/tablet/fondo_owner_tablet.png);
+    background-image: url('images/wallpapers/tablet/fondo_owner_tablet.png');
   }
 
   #content_of_owner {
@@ -1358,7 +1363,7 @@
 
   .container_aboutme h1 {
     color: var(--color-letra-titulos);
-    font-size: var(--tamaño-letra-titulos-tablet);
+    font-size: var(--tamano-letra-titulos-tablet);
     border: 1.2vw solid var(--color-azul-bordes);
     width: 40%;
     display: flex;
@@ -1406,7 +1411,7 @@
 
   .container_tech h1 {
     color: var(--color-letra-titulos);
-    font-size: var(--tamaño-letra-titulos-tablet);
+    font-size: var(--tamano-letra-titulos-tablet);
     border: 1.2vw solid var(--color-azul-bordes);
     width: 27%;
     display: flex;
@@ -1553,7 +1558,7 @@
 
   /* tools frameworks and libraries  */
   .container_tools_libraries_frameworks {
-    background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
+    background-image: url('images/wallpapers/mobile/background_tools_libraries.jpg');
     position: relative;
     bottom: 25.5vw;
     height: 110vw;
@@ -1775,7 +1780,7 @@
 
   /* portfolio  */
   .container_portfolio {
-    background-image: url(images/wallpapers/desktop/background_portfolio.webp);
+    background-image: url('images/wallpapers/desktop/background_portfolio.webp');
     position: relative;
     bottom: 40vw;
     height: 240vw;
@@ -1789,7 +1794,7 @@
 
   .container_portfolio h2 {
     color: var(--color-letra-titulos);
-    font-size: var(--tamaño-letra-titulos-tablet);
+    font-size: var(--tamano-letra-titulos-tablet);
     border: 1vw solid var(--color-azul-bordes);
     border-radius: 4vw;
     display: flex;
@@ -2164,7 +2169,7 @@
 
   /* <!-- section of contact --> */
   .container_contact {
-    background-image: url(images/wallpapers/mobile/backgroud_contact_mobile.jpg);
+    background-image: url('images/wallpapers/mobile/backgroud_contact_mobile.jpg');
     height: 175vw;
     width: 100%;
     position: relative;
@@ -2503,7 +2508,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(images/wallpapers/desktop/background_owner_desktop.png);
+    background-image: url('images/wallpapers/desktop/background_owner_desktop.png');
     max-width: 100%;
   }
 
@@ -2785,7 +2790,7 @@
 
   /* tools frameworks and libraries  */
   .container_tools_libraries_frameworks {
-    background-image: url(images/wallpapers/mobile/background_tools_libraries.jpg);
+    background-image: url('images/wallpapers/mobile/background_tools_libraries.jpg');
     position: relative;
     bottom: 25.5vw;
     height: 67vw;
@@ -3013,7 +3018,7 @@
 
   /* portfolio  */
   .container_portfolio {
-    background-image: url(images/wallpapers/desktop/background_portfolio.webp);
+    background-image: url('images/wallpapers/desktop/background_portfolio.webp');
     position: relative;
     bottom: 40vw;
     height: 170vw;
@@ -3535,7 +3540,7 @@
 
   /* <!-- section of contact --> */
   .container_contact {
-    background-image: url(images/wallpapers/mobile/backgroud_contact_mobile.jpg);
+    background-image: url('images/wallpapers/mobile/backgroud_contact_mobile.jpg');
     height: 68vw;
     width: 100%;
     position: relative;
