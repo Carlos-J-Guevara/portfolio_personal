@@ -894,7 +894,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 4vw;
+    top: 11.5vw;
   }
 
   .certificates_images_section2 img {
@@ -933,7 +933,7 @@
     width: 20vw;
     bottom: 0;
     position: relative;
-    top: -1vw;
+    top: 4.2vw;
   }
 
   /* styles diferent for links section 2 */
@@ -975,17 +975,22 @@
 
   #title_icon_edteam_gitlab_ci_cd {
     position: relative;
-    top: 1.5vw;
+    top: 6.5vw;
   }
 
   #title_icon_platzi_tailwind {
     position: relative;
-    top: 5.5vw;
+    top: 11vw;
   }
 
   #title_icon_platzi_illustrator {
     position: relative;
-    top: 10.5vw;
+    top: 17vw;
+  }
+
+  #title_icon_IBM_wordpress {
+    position: relative;
+    top: 20vw;
   }
 
   /* <!-- section of contact --> */
@@ -1608,9 +1613,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2vw;
+    margin: 0;
     position: relative;
     top: 5.8vw;
+    left: 3vw;
   }
 
   .images_section1 img {
@@ -1624,6 +1630,9 @@
     justify-content: center;
     align-items: center;
     margin: 2vw;
+    position: relative;
+    top: 5.6vw;
+    left: 3vw;
   }
 
   .images_section2 img {
@@ -1638,7 +1647,8 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    top: 5vw;
+    top: 5.1vw;
+    left: 1.1vw;
   }
 
   .images_section3 img {
@@ -1659,12 +1669,16 @@
     margin-right: 5vw;
     position: relative;
     top: 6.5vw;
+    left: 5vw;
   }
 
   .text_section2 p {
-    padding-top: 3vw;
+    padding-top: 2.9vw;
     padding-bottom: 3vw;
     margin-right: 5vw;
+    position: relative;
+    top: 6.4vw;
+    left: 3vw;
   }
 
   .text_section3 p {
@@ -1672,7 +1686,8 @@
     padding-bottom: 3vw;
     margin-right: 5vw;
     position: relative;
-    top: 0;
+    top: 0.8vw;
+    left: 1vw;
   }
 
   /* unique positioning because this line of p is different */
@@ -1690,6 +1705,26 @@
   #titulo_icon_photoshop {
     font-size: 2.5vw;
     transform: translate(0, -1.4vw);
+  }
+
+  #titulo_icon_figma {
+    font-size: 2.5vw;
+    transform: translate(0, -0.8vw);
+  }
+
+  #titulo_icon_wordpress {
+    font-size: 2.5vw;
+    transform: translate(0, -1.4vw);
+  }
+
+  #titulo_icon_react {
+    font-size: 2.5vw;
+    transform: translate(0, -0.5vw);
+  }
+
+  #titulo_icon_illustrator {
+    font-size: 2.5vw;
+    transform: translate(0, -1.2vw);
   }
 
   /* soft skills  */
@@ -2061,6 +2096,8 @@
     justify-content: center;
     align-items: center;
     margin: 2vw;
+    position: relative;
+    top: 2vw;
   }
 
   .certificates_images_section1 img {
@@ -2068,8 +2105,6 @@
     padding-bottom: 2.5vw;
     margin-left: 2vw;
     margin-right: 2vw;
-    position: relative;
-    top: 2vw;
   }
 
   .certificates_images_section2 {
@@ -2079,7 +2114,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    bottom: 7.5vw;
+    top: 0;
   }
 
   .certificates_images_section2 img {
@@ -2117,7 +2152,7 @@
     margin-right: 2vw;
     width: 20vw;
     position: relative;
-    bottom: 11.8vw;
+    bottom: 6.5vw;
   }
 
   /* styles diferent for links section 2 */
@@ -2149,22 +2184,27 @@
 
   #title_icon_platzi_photoshop {
     position: relative;
-    top: 9.5vw;
+    top: 9vw;
   }
 
   #title_icon_edteam_gitlab_ci_cd {
     position: relative;
-    top: -8.5vw;
+    top: -3.7vw;
   }
 
   #title_icon_platzi_tailwind {
     position: relative;
-    top: -5.5vw;
+    top: -0.5vw;
   }
 
   #title_icon_platzi_illustrator {
     position: relative;
-    top: -1vw;
+    top: 4.2vw;
+  }
+
+  #title_icon_IBM_wordpress {
+    position: relative;
+    top: 8.5vw;
   }
 
   /* <!-- section of contact --> */
@@ -2819,7 +2859,7 @@
     align-items: center;
     flex-direction: row;
     position: relative;
-    right: 11.1vw;
+    right: 12.5vw;
     bottom: 6vw;
   }
 
@@ -2864,7 +2904,7 @@
     align-items: center;
     margin: 2vw;
     position: relative;
-    bottom: 3.7vw;
+    bottom: 0.1vw;
   }
 
   .images_section2 img {
@@ -2907,7 +2947,7 @@
     padding-bottom: 2vw;
     margin-right: 15vw;
     position: relative;
-    bottom: 3.7vw;
+    bottom: 0;
   }
 
   .text_section3 p {
@@ -2915,7 +2955,7 @@
     padding-bottom: 2vw;
     margin-right: 15vw;
     position: relative;
-    top: -3.7vw;
+    top: -3.5vw;
   }
 
   /* unique positioning because this line of p is different */
@@ -3444,7 +3484,7 @@
     margin-left: 2vw;
     margin-right: 2vw;
     position: relative;
-    bottom: 15vw;
+    bottom: 11.7vw;
     left: 4vw;
   }
 
@@ -3477,7 +3517,7 @@
     margin-right: 2vw;
     width: 25vw;
     position: relative;
-    bottom: 15vw;
+    bottom: 11.4vw;
     left: 2vw;
     text-align: start;
     font-weight: 200;
@@ -3520,22 +3560,27 @@
   /* section 2 */
   #titulo_icon_edteam_testing_javascript {
     position: relative;
-    bottom: 15.5vw;
+    bottom: 12vw;
   }
 
   #title_icon_edteam_gitlab_ci_cd {
     position: relative;
-    bottom: 15.5vw;
+    bottom: 12vw;
   }
 
   #title_icon_platzi_tailwind {
     position: relative;
-    bottom: 16vw;
+    bottom: 12.5vw;
   }
 
   #title_icon_platzi_illustrator {
     position: relative;
-    bottom: 16vw;
+    bottom: 12.5vw;
+  }
+
+  #title_icon_IBM_wordpress {
+    position: relative;
+    bottom: 12.5vw;
   }
 
   /* <!-- section of contact --> */
