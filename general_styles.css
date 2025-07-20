@@ -18,7 +18,7 @@
 }
 
 /* Mobile Layout */
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
   body {
     /* Positioning */
     box-sizing: border-box;
@@ -590,12 +590,12 @@
     bottom: 5.5vw;
   }
 
-  /* portfolio  */
+  /* Projects  */
   .container_portfolio {
     background-image: url('images/wallpapers/desktop/background_portfolio.webp');
     position: relative;
     bottom: 40vw;
-    height: 250vw;
+    height: 550vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -618,14 +618,98 @@
     margin-top: 13vw;
   }
 
-  .container_portfolio img {
-    width: 10vw;
+  /* titles of each area inside projects */
+
+  .titles-projects {
+    color: var(--color-letra-titulos);
+    font-size: 7vw;
+    border: 1.2vw solid var(--color-azul-bordes);
+    border-radius: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+
+  #CodeDevelopmentAreaTitle {
+    width: 75%;
+    position: relative;
+    left: 0;
+    top: 5svw;
+    padding: 0.5vw;
+  }
+
+  #noCodeDevelopmentAreaTitle {
+    font-size: 6.2vw;
+    width: 75vw;
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 1vw;
+  }
+
+  /* styling of the hamburger menu  */
+
+  #iconoMenuProjects {
+    width: 12vw;
+    position: relative;
+    bottom: 40svw;
+    left: 40vw;
+  }
+
+  .menu-navigation-projects {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+    position: absolute;
+    left: 67vw;
+    right: 10vw;
+    bottom: 497svw;
+    width: 30vw;
+    background-color: var(--color-primario);
+    z-index: 1000;
+    border: 2px solid var(--color-azul-bordes);
+    border-radius: 1vw;
+    text-align: center;
+  }
+
+  .menu-navigation-projects li {
+    border: 0.2vw solid var(--color-azul-bordes);
+    border-radius: 1vw;
+    margin: 1vw;
+    padding: 1vw;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    right: 4vw;
+    width: 18vw;
+    font-size: 3vw;
+  }
+
+  .menu-navigation-projects li a {
+    text-decoration: none;
+    color: var(--color-letra-titulos);
+  }
+
+  .menu-navigation-projects li a:active {
+    background-color: rgb(140 139 139 / 10%);
+  }
+
+  /* projects inside the section */
 
   /* proyect practica_recipe_page_main */
   #practica_recipe_page_main {
     background-color: var(--color-gris-fondo);
-    width: 75%;
+    width: 75svw;
     border-radius: 3vw;
     margin-bottom: 8vw;
     display: flex;
@@ -633,6 +717,8 @@
     align-items: center;
     flex-direction: column;
     color: var(--color-letra-titulos);
+    position: relative;
+    bottom: 15svw;
   }
 
   /* title  */
@@ -658,7 +744,7 @@
     margin: 2vw;
   }
 
-  /* settings of button recipe page */
+  /* settings of button recipe page div */
   .buttons_recipe_page {
     display: flex;
     justify-content: center;
@@ -668,6 +754,7 @@
     margin-bottom: 2vw;
   }
 
+  /* settings of button recipe page a */
   .buttons_recipe_page .button {
     display: inline-flex;
     align-items: center;
@@ -683,6 +770,7 @@
     font-size: 2.3vw;
   }
 
+  /* settings of button recipe page icon */
   .buttons_recipe_page .button img {
     width: 15vw;
     height: 15vw;
@@ -694,18 +782,19 @@
     flex-direction: row;
   }
 
-  .buttons_recipe_page .button:hover {
+  .buttons_recipe_page .button:active {
     background-color: #6b7278;
     border: 0.1vw solid var(--color-azul-bordes);
   }
 
-  /* icons descriptive recipe page */
+  /* icons descriptive recipe page div */
   .icons_recipe_page {
     display: flex;
     flex-direction: row;
     width: 80%;
   }
 
+  /* icons descriptive recipe page span */
   .icons_recipe_page span {
     border-radius: 3vw;
     background-color: var(--color-letra-titulos);
@@ -720,10 +809,10 @@
     align-items: center;
   }
 
-  /* proyect desing_ticket portfolio */
+  /* proyect desing_ticket Projects */
   #desing_ticket {
     background-color: var(--color-gris-fondo);
-    width: 75%;
+    width: 75svw;
     border-radius: 3vw;
     margin-bottom: 8vw;
     display: flex;
@@ -731,6 +820,8 @@
     align-items: center;
     flex-direction: column;
     color: var(--color-letra-titulos);
+    position: relative;
+    bottom: 10vw;
   }
 
   /* title  */
@@ -757,7 +848,7 @@
     margin: 2vw;
   }
 
-  /* settings of button desing_ticket */
+  /* settings of button desing_ticket div */
   .buttons_desing_ticket {
     display: flex;
     justify-content: center;
@@ -767,6 +858,7 @@
     margin-bottom: 2vw;
   }
 
+  /* settings of button desing_ticket a */
   .buttons_desing_ticket .button {
     display: inline-flex;
     align-items: center;
@@ -782,6 +874,7 @@
     font-size: 2.3vw;
   }
 
+  /* settings of button desing_ticket icon */
   .buttons_desing_ticket .button img {
     width: 15vw;
     height: 15vw;
@@ -793,18 +886,19 @@
     flex-direction: row;
   }
 
-  .buttons_desing_ticket .button:hover {
+  .buttons_desing_ticket .button:active {
     background-color: #6b7278;
     border: 0.1vw solid var(--color-azul-bordes);
   }
 
-  /* icons descriptive */
+  /* icons descriptive desing_ticket div */
   .icons_desing_ticket {
     display: flex;
     flex-direction: row;
     width: 80%;
   }
 
+  /* icons descriptive desing_ticket span */
   .icons_desing_ticket span {
     border-radius: 3vw;
     background-color: var(--color-letra-titulos);
@@ -817,6 +911,230 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  /* portfolio project */
+  #portfolio-carlos-guevara-id-article {
+    background-color: var(--color-gris-fondo);
+    width: 75svw;
+    border-radius: 3vw;
+    margin-bottom: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-letra-titulos);
+    position: relative;
+    bottom: 5svw;
+  }
+
+  /* title  */
+  #portfolio-carlos-guevara-id-article h3 {
+    font-size: 5vw;
+    margin: 2vw;
+    margin-top: 10vw;
+    width: 80%;
+  }
+
+  /* description of  */
+  #portfolio-carlos-guevara-id-article p {
+    font-size: 3vw;
+    margin: 2vw;
+    width: 80%;
+    font-weight: 100;
+    text-align: justify;
+  }
+
+  /* settings of image  */
+  #portfolio-carlos-guevara-id-article img {
+    width: 60vw;
+    border-radius: 3vw;
+    margin: 2vw;
+  }
+
+  /* settings of button portfolio carlos guevara  div */
+  .buttons_portfolio_carlos_guevara {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 60vw;
+    margin-bottom: 2vw;
+  }
+
+  /* settings of button portfolio carlos guevara a */
+  .buttons_portfolio_carlos_guevara .button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1vw;
+    background-color: #3a3a3a;
+    border: 0.1vw solid trasparent;
+    border-radius: 1vw;
+    text-decoration: none;
+    margin: 1vw;
+    width: 24vw;
+    height: 6vw;
+    color: var(--color-letra-titulos);
+    font-size: 2.3vw;
+  }
+
+  /* settings of button portfolio carlos guevara icon */
+  .buttons_portfolio_carlos_guevara .button img {
+    width: 15vw;
+    height: 15vw;
+    max-width: 5vw;
+    max-height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+  }
+
+  .buttons_portfolio_carlos_guevara .button:active {
+    background-color: #6b7278;
+    border: 0.1vw solid var(--color-azul-bordes);
+  }
+
+  /* icons descriptive portfolio carlos guevara div */
+  .icons_portfolio_carlos_guevara {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+  }
+
+  /* icons descriptive portfolio carlos guevara span */
+  .icons_portfolio_carlos_guevara span {
+    border-radius: 3vw;
+    background-color: var(--color-letra-titulos);
+    color: var(--color-negro-fondo);
+    font-size: 2vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* no-code development from here.
+
+  /* tour and travel card */
+  #tour-and-travel-blog-id-article {
+    background-color: var(--color-gris-fondo);
+    width: 75svw;
+    border-radius: 3vw;
+    margin-bottom: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-letra-titulos);
+    position: relative;
+    top: 18svw;
+  }
+
+  /* title  */
+  #tour-and-travel-blog-id-article h3 {
+    font-size: 5vw;
+    margin: 2vw;
+    margin-top: 10vw;
+    width: 80%;
+  }
+
+  /* description of  */
+  #tour-and-travel-blog-id-article p {
+    font-size: 3vw;
+    margin: 2vw;
+    width: 80%;
+    font-weight: 100;
+    text-align: justify;
+  }
+
+  /* settings of image  */
+  #tour-and-travel-blog-id-article img {
+    width: 60vw;
+    border-radius: 3vw;
+    margin: 2vw;
+  }
+
+  /* settings of button desing_ticket div */
+  .buttons-tour-and-travel-blog-see-website {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 60vw;
+    margin-bottom: 2vw;
+  }
+
+  /* settings of button desing_ticket a */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website {
+    display: inline-flex;
+    align-items: center;
+    padding: 1vw;
+    background-color: #3a3a3a;
+    border: 0.1vw solid trasparent;
+    border-radius: 1vw;
+    text-decoration: none;
+    margin: 1vw;
+    width: 24vw;
+    height: 6vw;
+    color: var(--color-letra-titulos);
+    font-size: 2.3vw;
+  }
+
+  /* settings of button desing_ticket icon */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website
+    img {
+    width: 15vw;
+    height: 15vw;
+    max-width: 5vw;
+    max-height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+  }
+
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website:active {
+    background-color: #6b7278;
+    border: 0.1vw solid var(--color-azul-bordes);
+  }
+
+  /* icons descriptive desing_ticket div */
+  .icons-tour-and-travel-blog-descriptive {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+  }
+
+  /* icons descriptive desing_ticket span */
+  .icons-tour-and-travel-blog-descriptive span {
+    border-radius: 3vw;
+    background-color: var(--color-letra-titulos);
+    color: var(--color-negro-fondo);
+    font-size: 2vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* icons descriptive at tour travel blog */
+
+  .icons-tour-and-travel-blog-descriptive
+    #tour-and-travel-blog-id-icon-descriptive {
+    position: absolute;
+    left: 58vw;
+    bottom: 1vw;
+    width: 8vw;
   }
 
   /* certificates area  */
@@ -1273,7 +1591,7 @@
     border-radius: 1.5vw;
   }
 
-  .menu_navegation li:hover {
+  .menu_navegation li:active {
     background-color: #6b7278;
   }
 
@@ -1813,12 +2131,12 @@
     bottom: 5.5vw;
   }
 
-  /* portfolio  */
+  /* Projects  */
   .container_portfolio {
     background-image: url('images/wallpapers/desktop/background_portfolio.webp');
     position: relative;
     bottom: 40vw;
-    height: 240vw;
+    height: 530vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1831,7 +2149,7 @@
     color: var(--color-letra-titulos);
     font-size: var(--tamano-letra-titulos-tablet);
     border: 1vw solid var(--color-azul-bordes);
-    border-radius: 4vw;
+    border-radius: 3vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1839,10 +2157,115 @@
     position: relative;
     right: 19vw;
     margin-top: 13vw;
+    padding: 0.5vw;
+  }
+
+  /* titles of each area inside projects */
+
+  .titles-projects {
+    color: var(--color-letra-titulos);
+    font-size: 7vw;
+    border: 1.2vw solid var(--color-azul-bordes);
+    border-radius: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #CodeDevelopmentAreaTitle {
+    width: 75%;
+    position: absolute;
+    left: 12vw;
+    top: 60vw;
+    padding: 0.5vw;
+  }
+
+  #noCodeDevelopmentAreaTitle {
+    font-size: 6.2vw;
+    width: 75vw;
+    position: absolute;
+    left: 12vw;
+    top: 400svw;
+    padding: 1vw;
+  }
+
+  /* styling of the hamburger menu  */
+
+  #iconoMenuProjects {
+    display: none;
+  }
+
+  /* menu at tablet and generall styles */
+
+  .menu-navigation-projects {
+    max-width: 100%;
+    position: absolute;
+    bottom: 465svw;
+    width: 30vw;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .menu-navigation-projects li {
+    color: var(--color-letra-titulos);
+    font-size: 5vw;
+    border: 0.5vw solid var(--color-azul-bordes);
+    border-radius: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    background-color: rgb(255 255 255 / 17.6%);
+    font-weight: 250;
+  }
+
+  .menu-navigation-projects li a {
+    text-decoration: none;
+    color: var(--color-letra-titulos);
+  }
+
+  .menu-navigation-projects li a:active {
+    background-color: rgb(140 139 139 / 10%);
   }
 
   .container_portfolio img {
     width: 10vw;
+  }
+
+  /* styles to each bottom of in the project area */
+  #noCodeDevelopmentMenuOption {
+    position: absolute;
+    bottom: 26vw;
+    right: 34.5vw;
+  }
+
+  #noCodeDevelopmentMenuOption:active {
+    background-color: rgb(70 69 69 / 10%);
+  }
+
+  #behanceMenuOption {
+    position: absolute;
+    bottom: 26vw;
+    left: 2.5vw;
+  }
+
+  #behanceMenuOption:active {
+    background-color: rgb(70 69 69 / 10%);
+  }
+
+  #behancePortfolioMenuOption {
+    width: 68vw;
+    position: absolute;
+    bottom: 12vw;
+    right: -3.5vw;
+  }
+
+  #behancePortfolioMenuOption:active {
+    background-color: rgb(70 69 69 / 10%);
   }
 
   /* proyect practica_recipe_page_main */
@@ -1856,6 +2279,8 @@
     align-items: center;
     flex-direction: column;
     color: var(--color-letra-titulos);
+    position: relative;
+    top: 50vw;
   }
 
   /* title  */
@@ -1917,7 +2342,7 @@
     flex-direction: row;
   }
 
-  .buttons_recipe_page .button:hover {
+  .buttons_recipe_page .button:active {
     background-color: #6b7278;
     border: 0.1vw solid var(--color-azul-bordes);
   }
@@ -1954,6 +2379,8 @@
     align-items: center;
     flex-direction: column;
     color: var(--color-letra-titulos);
+    position: relative;
+    top: 50vw;
   }
 
   /* title  */
@@ -2016,7 +2443,7 @@
     flex-direction: row;
   }
 
-  .buttons_desing_ticket .button:hover {
+  .buttons_desing_ticket .button:active {
     background-color: #6b7278;
     border: 0.1vw solid var(--color-azul-bordes);
   }
@@ -2040,6 +2467,230 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  /* portfolio project */
+  #portfolio-carlos-guevara-id-article {
+    background-color: var(--color-gris-fondo);
+    width: 75svw;
+    border-radius: 3vw;
+    margin-bottom: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-letra-titulos);
+    position: relative;
+    top: 50svw;
+  }
+
+  /* title  */
+  #portfolio-carlos-guevara-id-article h3 {
+    font-size: 5vw;
+    margin: 2vw;
+    margin-top: 10vw;
+    width: 80%;
+  }
+
+  /* description of  */
+  #portfolio-carlos-guevara-id-article p {
+    font-size: 3vw;
+    margin: 2vw;
+    width: 80%;
+    font-weight: 100;
+    text-align: justify;
+  }
+
+  /* settings of image  */
+  #portfolio-carlos-guevara-id-article img {
+    width: 60vw;
+    border-radius: 3vw;
+    margin: 2vw;
+  }
+
+  /* settings of button portfolio carlos guevara  div */
+  .buttons_portfolio_carlos_guevara {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 60vw;
+    margin-bottom: 2vw;
+  }
+
+  /* settings of button portfolio carlos guevara a */
+  .buttons_portfolio_carlos_guevara .button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1vw;
+    background-color: #3a3a3a;
+    border: 0.1vw solid trasparent;
+    border-radius: 1vw;
+    text-decoration: none;
+    margin: 1vw;
+    width: 24vw;
+    height: 6vw;
+    color: var(--color-letra-titulos);
+    font-size: 2.3vw;
+  }
+
+  /* settings of button portfolio carlos guevara icon */
+  .buttons_portfolio_carlos_guevara .button img {
+    width: 15vw;
+    height: 15vw;
+    max-width: 5vw;
+    max-height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+  }
+
+  .buttons_portfolio_carlos_guevara .button:active {
+    background-color: #6b7278;
+    border: 0.1vw solid var(--color-azul-bordes);
+  }
+
+  /* icons descriptive portfolio carlos guevara div */
+  .icons_portfolio_carlos_guevara {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+  }
+
+  /* icons descriptive portfolio carlos guevara span */
+  .icons_portfolio_carlos_guevara span {
+    border-radius: 3vw;
+    background-color: var(--color-letra-titulos);
+    color: var(--color-negro-fondo);
+    font-size: 2vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* no-code development from here.
+
+  /* tour and travel card */
+  #tour-and-travel-blog-id-article {
+    background-color: var(--color-gris-fondo);
+    width: 75%;
+    border-radius: 3vw;
+    margin-bottom: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-letra-titulos);
+    position: relative;
+    top: 70vw;
+  }
+
+  /* title  */
+  #tour-and-travel-blog-id-article h3 {
+    font-size: 5vw;
+    margin: 2vw;
+    margin-top: 10vw;
+    width: 80%;
+  }
+
+  /* description of  */
+  #tour-and-travel-blog-id-article p {
+    font-size: 3vw;
+    margin: 2vw;
+    width: 80%;
+    font-weight: 100;
+    text-align: justify;
+  }
+
+  /* settings of image  */
+  #tour-and-travel-blog-id-article img {
+    width: 60vw;
+    border-radius: 3vw;
+    margin: 2vw;
+  }
+
+  /* settings of button desing_ticket div */
+  .buttons-tour-and-travel-blog-see-website {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 60vw;
+    margin-bottom: 2vw;
+  }
+
+  /* settings of button desing_ticket a */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website {
+    display: inline-flex;
+    align-items: center;
+    padding: 1vw;
+    background-color: #3a3a3a;
+    border: 0.1vw solid trasparent;
+    border-radius: 1vw;
+    text-decoration: none;
+    margin: 1vw;
+    width: 24vw;
+    height: 6vw;
+    color: var(--color-letra-titulos);
+    font-size: 2.3vw;
+  }
+
+  /* settings of button desing_ticket icon */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website
+    img {
+    width: 15vw;
+    height: 15vw;
+    max-width: 5vw;
+    max-height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+  }
+
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website:active {
+    background-color: #6b7278;
+    border: 0.1vw solid var(--color-azul-bordes);
+  }
+
+  /* icons descriptive desing_ticket div */
+  .icons-tour-and-travel-blog-descriptive {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+  }
+
+  /* icons descriptive desing_ticket span */
+  .icons-tour-and-travel-blog-descriptive span {
+    border-radius: 3vw;
+    background-color: var(--color-letra-titulos);
+    color: var(--color-negro-fondo);
+    font-size: 2vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* icons descriptive at tour travel blog */
+
+  .icons-tour-and-travel-blog-descriptive
+    #tour-and-travel-blog-id-icon-descriptive {
+    position: absolute;
+    left: 58vw;
+    bottom: 1vw;
+    width: 8vw;
   }
 
   /* certificates area  */
@@ -2407,7 +3058,7 @@
     font-size: 2vw;
   }
 
-  .menu_navegation_footer li:hover {
+  .menu_navegation_footer li:active {
     background-color: #6b7278;
   }
 
@@ -3056,12 +3707,12 @@
     bottom: 2vw;
   }
 
-  /* portfolio  */
+  /* project area from here.  */
   .container_portfolio {
     background-image: url('images/wallpapers/desktop/background_portfolio.webp');
     position: relative;
     bottom: 40vw;
-    height: 170vw;
+    height: 260vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -3090,6 +3741,115 @@
     width: 8vw;
   }
 
+  /* titles of each area inside projects */
+
+  .titles-projects {
+    color: var(--color-letra-titulos);
+    font-size: 3vw;
+    border: 0.3vw solid var(--color-azul-bordes);
+    border-radius: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 600;
+  }
+
+  #CodeDevelopmentAreaTitle {
+    width: 35%;
+    position: absolute;
+    left: 32vw;
+    top: 27svw;
+    padding: 0.5vw;
+    z-index: 10000;
+  }
+
+  #noCodeDevelopmentAreaTitle {
+    width: 38%;
+    position: absolute;
+    left: 30vw;
+    top: 132svw;
+    padding: 1vw;
+    z-index: 10000;
+  }
+
+  /* styling of the hamburger menu  */
+
+  #iconoMenuProjects {
+    display: none;
+  }
+
+  /* menu at tablet and generall styles */
+
+  .menu-navigation-projects {
+    max-width: 100%;
+    position: absolute;
+    bottom: 235svw;
+    width: 30vw;
+    text-align: center;
+    z-index: 100;
+  }
+
+  .menu-navigation-projects li {
+    color: var(--color-letra-titulos);
+    font-size: 2vw;
+    border: 0.2vw solid var(--color-azul-bordes);
+    border-radius: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    background-color: rgb(255 255 255 / 17.6%);
+    font-weight: 200;
+  }
+
+  .menu-navigation-projects li a {
+    text-decoration: none;
+    color: var(--color-letra-titulos);
+  }
+
+  .menu-navigation-projects li a:hover {
+    background-color: rgb(166 165 165 / 10%);
+  }
+
+  .container_portfolio img {
+    width: 10vw;
+  }
+
+  /* styles to each bottom of in the project area */
+  #noCodeDevelopmentMenuOption {
+    position: absolute;
+    bottom: 8vw;
+    right: 31vw;
+  }
+
+  #noCodeDevelopmentMenuOption:hover {
+    background-color: rgb(70 69 69 / 10%);
+  }
+
+  #behanceMenuOption {
+    position: absolute;
+    bottom: 8vw;
+    right: 9.5vw;
+  }
+
+  #behanceMenuOption:hover {
+    background-color: rgb(70 69 69 / 10%);
+  }
+
+  #behancePortfolioMenuOption {
+    width: 41.5vw;
+    position: absolute;
+    bottom: 2vw;
+    right: 9.5vw;
+  }
+
+  #behancePortfolioMenuOption:hover {
+    background-color: rgb(70 69 69 / 10%);
+  }
+
   /* proyect practica_recipe_page_main */
   #practica_recipe_page_main {
     background-color: var(--color-gris-fondo);
@@ -3103,7 +3863,7 @@
     flex-direction: column;
     color: var(--color-letra-titulos);
     position: relative;
-    bottom: 6vw;
+    top: 15vw;
   }
 
   /* title  */
@@ -3130,11 +3890,16 @@
 
   /* settings of image  */
   #practica_recipe_page_main img {
-    width: 36vw;
+    width: 34vw;
     border-radius: 1vw;
     position: absolute;
     left: 40vw;
     bottom: 5vw;
+  }
+
+  /* unique styles to image of the project */
+  #image_recipe_page_project_id {
+    height: 18vw;
   }
 
   /* icons descriptive recipe page */
@@ -3252,7 +4017,7 @@
     flex-direction: column;
     color: var(--color-letra-titulos);
     position: relative;
-    bottom: 6vw;
+    top: 15vw;
   }
 
   /* title  */
@@ -3402,6 +4167,296 @@
   #buttons_down_descriptive_desing_ticket_typescript {
     position: absolute;
     right: 10vw;
+  }
+
+  /* portfolio project card */
+  #portfolio-carlos-guevara-id-article {
+    background-color: var(--color-gris-fondo);
+    width: 80vw;
+    height: 25vw;
+    border-radius: 1vw;
+    margin-bottom: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-letra-titulos);
+    position: relative;
+    top: 15vw;
+  }
+
+  /* title  */
+  #portfolio-carlos-guevara-id-article h3 {
+    font-size: 2vw;
+    margin: 0;
+    margin-top: 0;
+    position: absolute;
+    right: 43vw;
+    width: 35vw;
+    bottom: 20vw;
+  }
+
+  /* description of  */
+  #portfolio-carlos-guevara-id-article p {
+    font-size: 1.3vw;
+    margin: 0;
+    font-weight: 200;
+    position: absolute;
+    right: 46vw;
+    bottom: 13vw;
+    width: 32vw;
+  }
+
+  /* settings of image  */
+  #portfolio-carlos-guevara-id-article img {
+    width: 34vw;
+    border-radius: 1.5vw;
+    position: absolute;
+    left: 40vw;
+    bottom: 5vw;
+  }
+
+  /* size to image of the project */
+  #image_carlos_portfolio_project_id {
+    height: 18vw;
+  }
+
+  /* icons descriptive portfolio carlos guevara div */
+  .icons_portfolio_carlos_guevara {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* settings of button portfolio carlos guevara  div */
+  .buttons_portfolio_carlos_guevara {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 10vw;
+    margin-bottom: 0;
+  }
+
+  /* settings of button portfolio carlos guevara a */
+  .buttons_portfolio_carlos_guevara .button {
+    padding: 0.5vw;
+    background-color: #3a3a3a;
+    border: 0.1vw solid trasparent;
+    border-radius: 1vw;
+    text-decoration: none;
+    margin: 0;
+    width: 10vw;
+    height: 3vw;
+    color: var(--color-letra-titulos);
+    font-size: 1.2vw;
+    position: absolute;
+    right: 40vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  /* settings of button portfolio carlos guevara icon */
+  .buttons_portfolio_carlos_guevara .button img {
+    width: 2vw;
+    height: 2vw;
+    max-width: 10vw;
+  }
+
+  /* hover to both buttons   */
+  .buttons_portfolio_carlos_guevara .button:hover {
+    background-color: #6b7278;
+    border: 0.1vw solid var(--color-azul-bordes);
+  }
+
+  /* support individually to each botton no image */
+  #see_website_portfolio_carlos_guevara {
+    position: absolute;
+    right: 65vw;
+    bottom: 3vw;
+  }
+
+  #see_code_portfolio_carlos_guevara {
+    position: absolute;
+    right: 53vw;
+    bottom: 3vw;
+  }
+
+  /* images of each boton  */
+  #icon_see_code_button_portfolio_carlos_guevara {
+    transform: translate(-42vw, 4vw);
+  }
+
+  #icon_web_button_portfolio_carlos_guevara {
+    transform: translate(-43vw, 4vw);
+  }
+
+  /* icons descriptive portfolio carlos guevara span */
+  .icons_portfolio_carlos_guevara span {
+    border-radius: 1vw;
+    background-color: var(--color-letra-titulos);
+    color: var(--color-negro-fondo);
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 18.5vw;
+  }
+
+  /* unique styles to each span down the photo of the project. */
+  #buttons_down_descriptive_portfolio_carlos_guevara_html {
+    position: absolute;
+    right: 33vw;
+  }
+
+  #buttons_down_descriptive_portfolio_carlos_guevara_css {
+    position: absolute;
+    right: 28vw;
+  }
+
+  #buttons_down_descriptive_portfolio_carlos_guevara_javascript {
+    position: absolute;
+    right: 19vw;
+  }
+
+  #buttons_down_descriptive_portfolio_carlos_guevara_typescript {
+    position: absolute;
+    right: 10vw;
+  }
+
+  /* no-code development from here.
+
+  /* tour and travel card */
+  #tour-and-travel-blog-id-article {
+    background-color: var(--color-gris-fondo);
+    width: 80vw;
+    height: 25vw;
+    border-radius: 1vw;
+    margin-bottom: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-letra-titulos);
+    position: relative;
+    top: 22vw;
+  }
+
+  /* title  */
+  #tour-and-travel-blog-id-article h3 {
+    font-size: 2vw;
+    margin: 0;
+    margin-top: 0;
+    position: absolute;
+    right: 43vw;
+    width: 35vw;
+    bottom: 20vw;
+  }
+
+  /* description of  */
+  #tour-and-travel-blog-id-article p {
+    font-size: 1.3vw;
+    margin: 0;
+    font-weight: 200;
+    position: absolute;
+    right: 46vw;
+    bottom: 13vw;
+    width: 32vw;
+  }
+
+  /* settings of image  */
+  #tour-and-travel-blog-id-article img {
+    width: 34vw;
+    border-radius: 1vw;
+    position: absolute;
+    left: 40vw;
+    bottom: 5vw;
+  }
+
+  /* size to image of the project */
+  #image_tour_and_travel_blog_project_id {
+    height: 18vw;
+  }
+
+  /* settings of button tour and travel div */
+  .buttons-tour-and-travel-blog-see-website {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 10vw;
+    margin-bottom: 0;
+  }
+
+  /* settings of button tour and travel a */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website {
+    padding: 0.5vw;
+    background-color: #3a3a3a;
+    border: 0.1vw solid trasparent;
+    border-radius: 1vw;
+    text-decoration: none;
+    margin: 0;
+    width: 10vw;
+    height: 3vw;
+    color: var(--color-letra-titulos);
+    font-size: 1.2vw;
+    position: relative;
+    right: 40vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  /* settings of button tour and travel icon */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website
+    img {
+    width: 2vw;
+    height: 2vw;
+    max-width: 10vw;
+  }
+
+  /* hover to both buttons   */
+  .buttons-tour-and-travel-blog-see-website
+    .button-tour-and-travel-blog-see-website:hover {
+    background-color: #6b7278;
+    border: 0.1vw solid var(--color-azul-bordes);
+  }
+
+  /* support individually to each botton no image */
+  #see_website_tour_and_travel_blog {
+    position: absolute;
+    right: 65vw;
+    bottom: 3vw;
+  }
+
+  /* images of each boton  */
+  #icon_web_button_tour_and_travel_blog {
+    transform: translate(-43vw, 4vw);
+  }
+
+  /* icons descriptive tour and travel */
+  .icons-tour-and-travel-blog-descriptive {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #tour-and-travel-blog-id-icon-descriptive {
+    width: 3.5vw !important;
+    transform: translate(30vw, 4vw);
+  }
+
+  /* centered in the card to each no code project */
+  .buttons-tour-and-travel-blog-see-website a {
+    position: relative;
+    left: 10vw;
   }
 
   /* certificates area  */
